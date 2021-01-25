@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>ES106</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./mycss/styles.css" />
+  </head>
+
+  <body ng-controller="testCtrl">
+    <!--Navigation bar-->
+    <div class="container">
+      <div class="header">
+	<div class="row">
+	  <div class="col-lg-3">
+	    <a href="./index.html">
+              <img draggable="false" (dragstart)="false;" class="unselectable" width=200 align="center" src="figures/feynman.png" alt="Header Logo">
+	    </a>
+	  </div>
+	  <div class="col-lg-9">
+            <h1 id="title"><b>Introduction to Computer Science</b></h1>
+            <p id="sub-title"><u>ES 106</u>, Ecole Centrale School of Engineering, Mahindra University</p>
+
+            <nav id="myNav">
+	      <button onclick="window.location.replace('./index.html')">Home</button>
+	      <button onclick="window.location.replace('./lectures.html')">Lectures</button>
+	      <button  onclick="window.location.replace('./labs.html')">Labs</button>
+	      <button class='current' onclick="window.location.replace('./participation.html')">Participation</button>
+	      	      <button  onclick="window.location.replace('./resources.html')">Resources</button>
+	    </nav>
+	    
+	  </div>
+	</div>    
+      </div>
+
+      <script>
+	// Add active class to the current button (highlight it)
+	var header = document.getElementById("myNav");
+	var btns = header.getElementsByTagName("button");
+	for (var i = 0; i < btns.length; i++) {
+	    btns[i].addEventListener("click", function() {
+		var current = document.getElementsByClassName("current");
+		if (current.length > 0) { 
+		    current[0].className = current[0].className.replace("current", "");
+		}
+		this.className = "current";
+	    });
+	}
+      </script>
+      <!--end of Navigation bar-->
+
+      <section>
+	<h3 class="add-margin">Panel members for the next class.</h3>
+	<p> bluh. </p>
+
+      </section>
+
+    </div>
+  </body> 
+
+</html>
+
+
+

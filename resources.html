@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>ES106</title>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./mycss/styles.css" />    
+  </head>
+
+  <body ng-controller="testCtrl">
+    <!--Navigation bar-->
+    <div class="container">
+      <div class="header">
+	<div class="row">
+	  <div class="col-lg-3">
+	    <a href="./index.html">
+              <img draggable="false" width=200 align="center" src="figures/feynman.png" alt="Header Logo">
+	    </a>
+	  </div>
+	  <div class="col-lg-9">
+            <h1 id="title"><b>Introduction to Computer Science</b></h1>
+            <p id="sub-title"><u>ES 106</u>, Ecole Centrale School of Engineering, Mahindra University</p>
+            <nav id="myNav">
+	      <button onclick="window.location.replace('./index.html')">Home</button>
+	      <button onclick="window.location.replace('./lectures.html')">Lectures</button>
+	      <button onclick="window.location.replace('./labs.html')">Labs</button>
+	      <button onclick="window.location.replace('./participation.html')">Participation</button>
+	      <button class='current' onclick="window.location.replace('./resources.html')">Resources</button>
+	    </nav> 
+	  </div>
+	</div>
+      </div>
+
+      <script>
+	// Add active class to the current button (highlight it)
+	var header = document.getElementById("myNav");
+	var btns = header.getElementsByTagName("button");
+	for (var i = 0; i < btns.length; i++) {
+	    btns[i].addEventListener("click", function() {
+		var current = document.getElementsByClassName("current");
+		if (current.length > 0) { 
+		    current[0].className = current[0].className.replace("current", "");
+		}
+		this.className = "current";
+	    });
+	}
+      </script>
+      <!--end of Navigation bar-->
+
+      <section>
+	<h3 class="add-margin">Resources</h3>
+	<p> This page countains links to various resoruce online etc </p>
+	
+      </section>
+
+      <hr>
+      
+      <section>
+	<h3>C vs Python?</h3>
+	<h4 style="text-align:right"> 24/01/2021 </h4>
+	
+	<p>
+	  To think of different programming languages (<code>C, C++, Python, Java, etc </code>) as mutual rivals is a serious misunderstanding of
+	  reality. Fact is that every programming language that you find today would have emerged in a specific historical context and was developed
+	  to solve a specific class of computational problems. Therefore, it is rather inappropriate to see any one of them as <b>universally the
+	  best</b>. Nonetheless, we can always say that a particular language is the most suitable <i>for a specific kind of tasks</i> - usually the tasks for which
+	  it was developed to begin with. For example: <code>C</code> was a language developed in 1970's with the purpose of building an operating system in mind;
+	  whereas <code>Java</code> was developed in 1990's - the time that coincides with rapid development of internet - to build applications that
+	  run across computers that are connected across a network. So naturally, what <code>C</code> can do easily - <code>C</code> does it easily;
+	  and likewise what <code>Java</code> can do it easily - <code>Java</code> does it easily - because the very purpose of existence is
+	  associated with it.
+	</p>
+	<p>
+	  As it happens <code>Python</code> is a language that was also developed in 1990's, but with a different purpose in mind. When Guido van
+	  Rossum (a Dutch programmer) developed Python he wanted to create a quick and easy way of building prototypes. <i>Now, what does that
+	  mean?</i> Suppose you have an idea to design a rocket that can enter Jupiter's orbit with very little fuel cost carrying much higher
+	  payload.  For people to believe that your idea works, they expect you to come up with a prototype - a miniature version of the real rocket
+	  itself.  If the protype fails to stand the tests, there's no way the actual rocket could suceed; on the contrary if the prototype succeeds
+	  there are high chances that the actual rocket may succeed. In the same spirit, suppose you conceive a killer mobile application that you
+	  think can replace, say <i>WhatsApp</i>, in terms of some specific features etc, you should develop a prototype - real quick - to convice the
+	  world that your idea is worth the attention. It is for this purpose that Python generally comes handy. It enables you write programs with
+	  non-trivial functionalities in a very short time - <u><i>rapid prototype development</i></u>, as they call it in the business. So naturally
+	  if <code>Python</code> feels <i>simple</i>, how is it a surprise? It is supposed to be simple for humans! But eventually when you want to
+	  deploy commercial applications that ought to run very fast across devices, you may want to <i>port it</i> to a lower level language such
+	  as <i>C/C++</i>. All popular web-browsers such as <b>Firefox</b>, <b>Google Chrome</b> etc and several famous videogames and applications
+	  such as <b>Counterstrike</b>, <b>Call of duty</b>, <b>Adobe Photoshop</b> etc are all built using <code>C, C++</code> because 'speed' is a very
+	  crucial parameter.  Therefore learning <code>C</code> is still very much relevant for every engineer despite the fact that the language has
+	  been around for more than 50 years.</p>
+	<p>
+	  In recent years, thanks to faster CPUs and larger RAMs, <code>Python</code> has become a very important language among the developers and
+	  researchers of Machine learning which makes it a very important language to master. But, one should also keep in mind that most of the heavy
+	  duty tools that work in the background of machine learning programs are written in speed efficient languages such as <code>C, C++</code>. As
+	  a matter of fact, the language <code>Python</code> (the Python interpretor, that is the engine that makes Python work) itself is written
+	  in <code>C</code>!  Imagine how silly one sounds to argue that <i>bread</i> is a rival to <i>flour</i>! Can bread ever compete to be
+	  better than the flour? The question itself makes little sense!
+	</p>
+	
+	<h4>Conclusion</h4> 
+	<p>
+	  Python is a high level language (higher because it is closer to human logic than to machine logic) used to solve specific kinds of problems
+	  by developing quick solutions. C, on the other hand is a lower language and has been used in developing some very important applicaitons
+	  that will continue to be important in forseeable future. Therefore, as beginners, rather than seeing them as rivals one trying to dethrone
+	  the other, we see them as two different tools (both very important) each suited for specific tasks. It is all about choosing the right tool
+	  for the right job.
+	</p>
+	<br>
+	<br>
+
+	<figure>
+	  <img align="" width = "100%" src="figures/cisrelevant.png"
+	       alt='C language'>
+	  <figcaption>A screenshot of a recent article in Time of India which claims that C is still one of the most important languages to learn.</figcaption>
+	</figure>
+
+      </section>
+    </div>
+
+    <br>
+    <br>
+    <br>
+  </body> 
+
+</html>
+
+
+

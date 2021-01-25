@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>ES106</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+      $(function(){
+	  $("#coursePlan").load("test.html"); 
+      });
+    </script> 
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./mycss/styles.css" />
+
+    <style> 
+      
+      table, th, td { 
+          border: 1px solid black; 
+          border-collapse: collapse; 
+          padding: 6px; 
+          text-align:center; 
+      } 
+      
+    </style> 
+
+  </head>
+
+  <!-- *****************************************************************************************  -->
+  
+  <body>
+    <!--Navigation bar-->
+    <div class="container">
+      <div class="header">
+	<div class="row">
+	  <div class="col-lg-3">
+	    <a href="./index.html">
+	      <img draggable="false" width=200 align="center" src="figures/feynman.png" alt="Header Logo">
+	    </a>
+	  </div>
+	  <div class="col-lg-9">
+            <h1 id="title"><b>Introduction to Computer Science</b></h1>
+            <p id="sub-title"><u>ES 106</u>, Ecole Centrale School of Engineering, Mahindra University</p>
+
+            <nav id="myNav">
+	      <button class='current' onclick="window.location.href='./index.html'">Home</button>
+	      <button onclick="window.location.replace('./lectures.html')">Lectures</button>
+	      <button onclick="window.location.replace('./labs.html')">Labs</button>
+	      <button onclick="window.location.replace('./participation.html')">Participation</button>
+	      <button onclick="window.location.replace('./resources.html')">Resources</button>
+	    </nav>
+	  </div>
+	</div>    
+      </div>
+
+      <script>
+	// Add active class to the current button (highlight it)
+	var header = document.getElementById("myNav");
+	var btns = header.getElementsByTagName("button");
+	console.log(btns)
+	for (var i = 0; i < btns.length; i++) {
+	    btns[i].addEventListener("click", function() {
+		var current = document.getElementsByClassName("current");
+		if (current.length > 0) { 
+		    current[0].className = current[0].className.replace("current", "");
+		}
+		this.className = "current";
+	    });
+	}
+      </script>
+
+      <!--end of Navigation bar-->
+      
+      <section>
+	<h3 class="add-margin">About this Course</h3>
+
+	<p>
+	  <ol>
+	    <li> What does <i>computation</i> mean, and how does it work?
+	    <li> What does it mean to <i>solve a problem</i> through <i>computer programming</i>?
+	  </ol>
+	  By answering questions like these, we aim to address the underlying principles behind various computer applications that we interact with in our everyday life. We subscribe to the philosophy that there is <i>only one purpose</i> to learn computer programming and that is to solve problems, and it is only through problem solving that we learn anything meaningful skill. This is an introductory course and hence no prior knowledge on computers is expected. However, you will need to jog your common sense a bit to get hold of the subject. A general attitude and affinity to connect ideas and relate them to everyday experience with computers and smart devices will take you a long way.
+	</p>
+
+	<h3 class="add-margin">Course plan</h3>
+	<div id="coursePlan"></div>
+
+	<h3 class="add-margin">Grading Policy</h3>
+
+	<table>
+	  <tr>
+	    <th>Component</th>
+	    <th>Weightage</th>
+	  </tr>
+          <tr> 
+            <td>Minor 1</td> 
+            <td>15</td> 
+          </tr> 
+          <tr> 
+            <td>Minor 2</td> 
+            <td>15</td> 
+          </tr> 
+          <tr> 
+            <td>Final exam</td> 
+            <td>30</td> 
+          </tr>
+	  <tr> 
+            <td>Continuous assessment <a href="#footnote-1">[1]</a></td> 
+            <td>10</td> 
+          </tr> 
+          <tr> 
+            <td>Lab Performance</td> 
+            <td>30</td> 
+          </tr>
+	  <tr> 
+          </tr> 
+          <!-- The last row -->
+          <tr> 
+            <td colspan="2">Total: 100</td> 
+          </tr> 
+        </table> 
+
+
+	<p id="footnote-1">[1] Based on your attendance and participation during lectures and tutorials.</p>
+	
+	<h3 class="add-margin">Contact ME:</h3>
+	<ul>
+	  <li>Email ID:<a href="mailto:bhanukiran.p@mahindrauniversity.edu.in">bhanukiran.p@mahindrauniversity.edu.in</a>
+	    <!-- <li>Email ID:<a href="mailto:sunny.rai@mahindrauniversity.edu.in">sunny.rai@mahindrauniversity.edu.in</a> -->
+	    <!-- <li>Email ID:<a href="mailto:venkatarajesh.tavva@mahindrauniversity.edu.in">venkatarajesh.tavva@mahindrauniversity.edu.in</a> -->
+	    <!-- <li>Email ID:<a href="mailto:neha.bharill@mahindrauniversity.edu.in">neha.bharill@mahindrauniversity.edu.in</a> -->
+	    <!-- <li>Email ID:<a href="mailto:yayati.gupta@mahindrauniversity.edu.in">yayati.gupta@mahindrauniversity.edu.in</a> -->
+	    <!-- <li>Email ID:<a href="mailto:sanatan.sukhija@mahindrauniversity.edu.in">sanatan.sukhija@mahindrauniversity.edu.in</a> -->
+	    <!-- <li>Email ID:<a href="mailto:omprakash.patel@mahindrauniversity.edu.in">omprakash.patel@mahindrauniversity.edu.in</a> -->
+
+	    <br>
+	    <br>
+	    <br>
+	    <br>
+	    <br>
+	    <br>
+	</ul>
+      </section>
+
+    </div>
+  </body> 
+
+</html>
+
+
+
