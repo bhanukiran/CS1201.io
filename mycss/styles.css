@@ -1,4 +1,13 @@
 
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
 hr { 
             position: relative; 
             top: 20px; 
