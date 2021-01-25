@@ -8,21 +8,21 @@ table, th, td {
 } 
 
 .center {
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 
 
 hr { 
-            position: relative; 
-            top: 20px; 
-            border: none; 
-            height: 4px; 
-            background: black; 
-            margin-bottom: 50px; 
-        } 
+    position: relative; 
+    top: 20px; 
+    border: none; 
+    height: 4px; 
+    background: black; 
+    margin-bottom: 50px; 
+} 
 
 h3 {
     color: darkred;
@@ -35,29 +35,29 @@ h4 {
 }
 
 body {
-  font-size: 110%;
+    font-size: 110%;
 }
 
 /* // ------------------- */
 
 
 div {
-  text-align: justify;
-  /* text-justify: inter-word; */
+    text-align: justify;
+    /* text-justify: inter-word; */
 }
 
 body {
-  background-color: #EFF5F6;
+    background-color: #EFF5F6;
 }
 
 
 .unselectable {
-  user-drag: none; 
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .header {
