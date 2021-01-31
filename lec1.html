@@ -1,37 +1,81 @@
 
 <html>
   <head>
-     <title>lec1</title>
+    <script type="text/javascript"
+	    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <title>lec1</title>
   </head>
   <body>
     <h4 id="lec1">[Lecture 1] Everything is a number</h4>
 
     <quest>Why is everything associated with computers referred to as <u>digital</u>? </quest>
     <p>
-      The choice of the word <i>digital</i> in English is historical. But the name owes to the fact that everything that has some representation on a modern computer can be converted into a <u>number</u> - an integer more precisely. <span>Any file: text, image, video, a website, or any new app that you want to install on your phone - everything can be mapped to a number</span>. This is the reason the French use the word <i>numerique</i> instead of digital. What this means is that when you take out your phone and capture a picture, you are essentially capturing a unique integer! When you this across to your friend, you are basically transferring this number! Your friend's device interprets this number and lights up the LEDs on the screen in a way that resembles the picture you have taken. As it happens, for technological reasons, it is easier to design machines that work with these <i>numbers</i> represented in binary system than, say, in decimal or octal system. This is the reason why everything is represented as a stream of binary <i>digits</i> in computers - a notion which is quite popular anyway. Not only is everything a number, but everything that you <i>do</i> on a computer is a <u>numerical operation</u>. That is if your friend applies a filter on the picture, what she's doing is to operate a function on the number and transform it to something else.
-
-      Simple may it sound, but to understand this requires some patient understanding of what happens under the hood.
+      
+      The choice of the word <i>digital</i> in English is historical. But the name owes to the fact that everything that has some representation on a modern computer can be converted into a <u>number</u> - an integer more precisely. <span>Any file: text, image, video, a website, or any new app that you want to install on your phone - everything can be mapped to a number</span>. This is the reason the French use the word <i>numerique</i> instead of digital. <span>What this means is that when you take out your phone and capture a picture, you are essentially capturing a unique integer!</span> And, when you send this across to your friend, you are basically transferring this number! Your friend's device interprets this number and lights up the LEDs on the screen in a way that resembles the picture you have taken. As it happens, for technological reasons, it is easier to design machines that work with these <i>numbers</i> represented in binary system than, say, in decimal or octal system. This is the reason why everything is represented as a stream of binary <i>digits</i> (or <span>bits</span>) in computers - a notion which is quite popular anyway. Not only is everything a number, but <span>everything that you <i>do</i> on a computer is a <u>numerical operation</u></span>. That is, if your friend applies a <i>filter</i> on the image, what she's actually doing is to operate a function on the number and transform it to some other number: very much like how the function <code> f(x) := x^2 </code> maps <code> 2 -> 4</code> and<code> 3 -> 9</code>.
     </p>
-
-    <div>
-      <img style="width: 15%;" class="center" src="http://latex.codecogs.com/svg.latex?1+sin(x)" border="0"/>
-    </div>
-
-    <div lang="latex">
-\frac{1+sin(x)}{y}
-    </div>
     
-    
-    <b>But can everything be a number? </b>
+    <quest>But how can everything be a number? </quest>
     <p>
-      To motivate this, we considered the possibility of transmitting a piece of <i>text</i> by encoding it as binary digits.
+      To motivate this, we consider the possibility of transmitting a piece of <i>text</i> (in English) by encoding it as binary digits. <span>Imagine you have piece of text message that you'd like to communicate with your friend</span> who can <i>see</i> you but cannot <i>hear</i> you. How can you achieve this?
     </p>
 
-    	<figure>
-	  <img class="center" width = "70%" src="figures/handCommunivation.png"
-	       alt='C language'>
-	  <!-- <figcaption>A screenshot of a recent article in Time of India which claims that C is still one of the most important languages to learn.</figcaption> -->
-	</figure>
+    <figure>
+      <img class="center" width = "70%" src="figures/handCommunivation.png"
+	   alt='text to Binary'>
+      <!-- <figcaption>A screenshot of a recent article in Time of India which claims that C is still one of the most important languages to learn.</figcaption> -->
+    </figure>
 
+    <p>
+      We could achieve this by mapping letters in the alphabet to integers the following way:
+    </p>
+
+    <figure>
+      <img class="center" width = "70%" src="figures/handCommunivation2.png"
+	   alt='text to Binary'>
+      <!-- <figcaption>A screenshot of a recent article in Time of India which claims that C is still one of the most important languages to learn.</figcaption> -->
+    </figure>
+
+    <p>
+      By following this scheme the word <b>Harry</b> can be communicated as follows:
+    </p>
+
+    <figure>
+      <img class="center" width = "70%" src="figures/handCommunivation3.png"
+	   alt='text to Binary'>
+      <!-- <figcaption>A screenshot of a recent article in Time of India which claims that C is still one of the most important languages to learn.</figcaption> -->
+    </figure>
+
+    <p>
+      By this method, one can convert a text of any length can be converted to a long stream of bits which altogether can be converted to an integer!
+    </p>
+    
+    
+    <p>
+      Instead of coming up with your own encoding, we could use the standard encoding called the <b>ASCII</b> encoding of text which includes not just symbols in English alphabet but all possible punctuation marks and letters that occur in languages such as French, German, Spanish etc. The <b>ASCII</b> encoding also includes encoding of button presses such as BACKSPACE, TAB, ESC etc. Below you can see a preview of the ASCII table taken from <a href="http://www.asciitable.com">http://www.asciitable.com</a>.
+    </p>
+    
+    <div class="box" style="margin-left: auto; margin-right: auto;">
+      <iframe src="http://www.asciitable.com" width = 90% height = "500px">
+      </iframe>
+    </div>
+
+
+    <quest>How about other forms of media?</quest>
+    <p>
+      In the class we further discussed the following ideas:
+      <ol>
+	<li> How binary images can be converted to a stream of bits by considering each pixel as white/black (1 or 0).
+	<li> How gray images can be converted to a stream of bits by considering each pixel can have its grayness (an integer value) ranging from 0 to 10 (or some upper limit).
+	<li> How colored images can be converted to a stream of bits by considering each pixel as an ordered triple of (R,G,B) values each varying within a range.</li> 
+	Go to this website play around by converting images to binary numbers: <a href="https://www.dcode.fr/binary-image"> https://www.dcode.fr/binary-image</a>.
+	<li> We have discussed how audio is sampled at a desired rate and how amplitude is discretized and converted to binary.</li>
+    </p>
+
+    <p>
+      For a more information about how data (information) is stored, processed and transmitted in the form of bits, you are strongly advised to go through this webpage carefully: <a href="https://www.bbc.co.uk/bitesize/guides/zpfdwmn/revision/1">BBC BiteSize: Representing text, images and sound</a>.
+    </p>
+    
   </body>
 </html>
