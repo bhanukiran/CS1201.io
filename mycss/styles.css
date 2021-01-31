@@ -1,4 +1,23 @@
+/* ----------------------------- */
 
+#toc_container {
+    /* background: #f9f9f9 none repeat scroll 0 0; */
+    border: 1px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 30px;
+    width: auto;
+}
+
+.toc_title {
+    font-weight: 900;
+    text-align: left;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
 
 table, th, td { 
     border: 1px solid black; 
@@ -8,12 +27,28 @@ table, th, td {
 } 
 
 .center {
+    display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 50%;
+}
+
+quest {
+    color:black;
+    font-style: bold;
+    font-weight:600;
+    font-size: large;
 }
 
 
+p {
+    text-indent: 20pt;
+}
 
+
+span{
+    color: #3337AC;
+}
 
 hr { 
     position: relative; 
@@ -27,7 +62,8 @@ hr {
 h3 {
     color: darkred;
     font-weight: bold;
-    font-size: 30px
+    font-size: 30px;
+	       
 }
 
 h4 {
@@ -65,13 +101,23 @@ body {
     text-align: center;
     background: rgba(53, 96, 96, 0.5);
     color: darkred;
-    font-size: 25px;
+    font-size: min(max(16px, 4vw), 22px);
 }
 
-img {
-    border: 10px solid white;
-    border-radius: 1%; }
+/* img { */
+/*     border: 10px solid white; */
+/*     border-radius: 1%; } */
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width:1000px) {
+  img#optionalstuff {
+    display: none;
+  }
+}
 
 /* ---------------------------- */
 
@@ -108,36 +154,41 @@ nav a {
     height:100%;
 }
 /* ------------------------------- */
-.btn {
-    color: white;
-    /* margin: 3px; */
-    /* padding: 9px 15px; */
-    font-size: auto;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    /* background-color: LightSeaGreen; */
-    border: none;
-    border-radius: auto;
-    box-shadow: 2px 10px #1999;
+
+/* button { */
+/*     width: auto; */
+/*     height: auto; */
+/* } */
+
+
+/* #button :hover { */
+/*   background-color: #7e7ecc; */
+/* } */
+
+
+.ico {
+    display: block;
+    color: #fff;
 }
 
-.btn {
+.ico:hover {
+    color: #ED1C24;
+}
+
+button {
+    text-align: center;
+    font-style: bold;
+    /* background: #117ecc; */
+    transition: all 0.3s ease 0s;
+    border: none;
     width: auto;
     height: auto;
 }
-.btn a {
-    display: block;
-    width: auto;
-    line-height: auto;
-}
 
-button.hover {background-color: #08A493}
-
-.current {
+button.current {
     background-color: #08A493;
-    box-shadow: 0 5px black;
-    transform: translateY(4px);
+    box-shadow: 0 3px black;
+    transform: translateY(1px);
 }
 
 /* ------------------------------- */
@@ -150,15 +201,14 @@ section {
     margin-right: 2%; }
 
 footer {
-    text-align: center; }
+    text-align: center;
+}
 
-.social-icons {
-    float: right;
-    width: 50px;
-    height: 50px;
-    margin: 10px; }
+.double {
+    border-bottom: 1px double grey;
+    border-top: 1px double grey;
+    padding: 1px 0;
+}
 
-footer {
-    text-align: center; }
 
 /*# sourceMappingURL=styles.css.map */

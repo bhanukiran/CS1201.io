@@ -1,31 +1,107 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <title>CS1201</title>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./mycss/styles.css" />
+
+    <!-- ----------------- reloading same pos -------------------------- -->
+    <script>
+      $(window).scroll(function() {
+	  sessionStorage.scrollTop = $(this).scrollTop();
+      });
+
+      $(document).ready(function() {
+	  if (sessionStorage.scrollTop != "undefined") {
+	      $(window).scrollTop(sessionStorage.scrollTop);
+	  }
+      });
+
+
+      function myFunction(){
+	  $("form").submit();
+      }
+    </script>
+    
+    <!-- -------------- navsection ----------------------------- -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+
+	  const observer = new IntersectionObserver(entries => {
+	      entries.forEach(entry => {
+		  const id = entry.target.getAttribute('id');
+		  if (entry.intersectionRatio > 0) {
+		      document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active');
+		  } else {
+		      document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active');
+		  }
+	      });
+	  });
+
+	  // Track all sections that have an `id` applied
+	  document.querySelectorAll('section[id]').forEach((section) => {
+	      observer.observe(section);
+	  });
+	  
+      });
+    </script>
+    
+
+    <!-- ------------floating top button---------------- -->
+
+    <style>
+
+      #myBtn {
+	  display: none;
+	  position: fixed;
+	  bottom: 20px;
+	  right: 30px;
+	  z-index: 99;
+	  font-size: 18px;
+	  border: none;
+	  outline: none;
+	  background-color: darkred;
+	  color: white;
+	  cursor: pointer;
+	  padding: 15px;
+	  border-radius: 4px;
+      }
+
+      #myBtn:hover {
+	  background-color: #555;
+      }
+    </style>
+
+    <!-- ------------End of floating top button---------------- -->
+
+
+    
   </head>
 
+  <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+  
   <body ng-controller="testCtrl"  bgcolor="#EDEDE3">
     <!--Navigation bar-->
     <div class="container">
       <div class="header">
 	<div class="row">
 	  <div class="col-lg-3">
+	    
 	    <a href="./index.html">
-              <img draggable="false" width=200 align="center" src="figures/feynman.png" alt="Header Logo">
+              <img id="optionalstuff" draggable="false" width=200 align="center" src="figures/feynman.png" alt="Header Logo">
 	    </a>
+	    
 	  </div>
 	  <div class="col-lg-9">
 	    
             <h1 id="title"><b>Introduction to Computer Science</b></h1>
 
-            <p id="sub-title"><u>CS1201</u>, Ecole Centrale School of Engineering, Mahindra University</p>
+            <p  id="sub-title"><u>CS1201</u>, Ecole Centrale School of Engineering, Mahindra University</p>
 
             <nav id="myNav">
 	      <button onclick="window.location.replace('./index.html')">Home</button>
@@ -53,14 +129,61 @@
 	    });
 	}
       </script>
-      <!--end of Navigation bar-->
+      <!-------------------------------------------- -end of Navigation bar ----------------------------------------->
 
+      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+      <script>
+	//Get the button
+	var mybutton = document.getElementById("myBtn");
+
+	// When the user scrolls down 20px from the top of the document, show the button
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		mybutton.style.display = "block";
+	    } else {
+		mybutton.style.display = "none";
+	    }
+	}
+
+	// When the user clicks on the button, scroll to the top of the document
+	function topFunction() {
+	    document.body.scrollTop = 0;
+	    document.documentElement.scrollTop = 0;
+	}
+      </script>
+      
+      <div>
+	<h3 class="toc_title"><u>Contents</u></h3>
+	<ul class="toc_list" style="margin-left: 30px;">
+	  <li><a href="#lec1" style="color: blue; font-size:20px;">Lecture 1</a>
+	  <li><a href="#lec1" style="color: blue; font-size:20px;">Lecture 2</a>
+	  <li><a href="#lec1" style="color: blue; font-size:20px;">Lecture 3</a>
+	</ul>
+      </div>
+
+      <hr>
+      
       <section>
-	<h3 class="add-margin">Lectures</h3>
-	<p> This page contains some lecture notes and slides that are used during the lectures.</p>	
+	<div w3-include-html="lec1.html"></div>
       </section>
+      <hr>
+      <!-- <section> -->
+      <!-- 	<div w3-include-html="lec2.html"></div> -->
+      <!-- </section> -->
+      
+
     </div>
     
+
+
+
+    <div w3-include-html="footer.html"></div>
+    <script>
+      w3IncludeHTML();
+    </script>
     
   </body> 
 
