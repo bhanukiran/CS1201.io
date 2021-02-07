@@ -191,30 +191,28 @@
 	<ul class="toc_list" style="margin-left: 30px;">
 	  <li><a href="#lec1" style="color: blue; font-size:20px;">Lecture 1</a>
 	  <li><a href="#lec2" style="color: blue; font-size:20px;">Lecture 2</a>
-	  <li><a href="#lec3" style="color: blue; font-size:20px;">Lecture 3</a>
+	  <!-- <li><a href="#lec3" style="color: blue; font-size:20px;">Lecture 3</a> -->
 	</ul>
       </div>
 
       <hr>
       
       <section>
-	<div w3-include-html="lec1.html"></div>
-	<script>
-	  w3IncludeHTML();
-	</script>
+	<iframe src="lec1.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+      </section>
+      <hr>
+      <section>
+        <iframe src="lec2.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
       </section>
       <hr>
       <!-- <section> -->
-	<!-- 	<div w3-include-html="lec2.html"></div> -->
-	<!-- </section> -->
-      
-
+      <!--   <iframe src="lec4.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe> -->
+      <!-- </section> -->
     </div>
-    
-    <div w3-include-html="footer.html"></div>
-    <script>
-      w3IncludeHTML();
-    </script>
+
+
+
+    <iframe src="footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
   </body> 
 
 </html>

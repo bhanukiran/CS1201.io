@@ -3,18 +3,8 @@
   <head>
     <title>CS1201</title>
 
-
-    <!-- ---- latex --  -->
-    <meta charset="utf-8">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" id="MathJax-script" async
-	    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-    </script>
-    
     <!-- ---- for html reuse -- -->
-    <script language="javascript" src="w3IncludeHTML.js">
-    
-    <script src="https://www.w3schools.com/lib/w3data.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script>
       $(function(){
@@ -167,21 +157,12 @@
 	</section>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 
       </section>
 
     </div>
 
-    <div w3-include-html="footer.html"></div>
-
-    <script>
-      w3IncludeHTML();
-    </script>
-
+    <iframe src="footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
 
   </body> 
 

@@ -34,6 +34,28 @@ table, th, td {
     margin-right: auto;
 }
 
+.video-container {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:80%;
+}
+.video-container::after {
+    padding-top: 56.25%;
+    display: block;
+    content: '';
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+}
+
 .center {
     display: block;
     margin-left: auto;
@@ -42,7 +64,7 @@ table, th, td {
 }
 
 quest {
-    color:black;
+    color:#3337AC;
     font-style: bold;
     font-weight:700;
     font-size: larger;
@@ -76,7 +98,8 @@ h3 {
 }
 
 h4 {
-    color: #3337AC;
+    color: #061D87;
+    font-size:150%;
 }
 
 body {

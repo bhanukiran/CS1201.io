@@ -1,13 +1,58 @@
 
 <html>
   <head>
-<title>lec1</title>
-</head>
-<body>
-<h4 id="lec2">Lecture 2: Nothing is Binary</h4>
+    <title>lec1</title>
+  </head>
+  <body>
+    <h4 id="lec2">[Lecture 2] Data and storage</h4>
 
-this is something else. Ver Very.
+    <!-- Q1 -->    <quest>How is the information encoded in binary stored on physical devices?</quest><br> 
+    
+    Watch this video to see how data is stored in you harddisk:<br>
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/wteUW2sL7bc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    Watch this video to see how data is stored in a CD, DVD, Blueray etc:<br>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/H-jxTzFrnpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
 
-</body>
+    <p>
+      As you can see in the above videos, different laws of physics are exploited to store memory in different physical devices.
+      <ul>
+	<li> To read and write from an HDD: Magnetic field is used to manipulate the tiny magnetic grains.
+	<li> Lasers are used to read and write from CDs and DVDs.
+      </ul>
+    </p>
+    Naturally, the deeper the laws of physics we want to use, the more sophisticated the engineering will look be.
+
+    For instance, the solids-state hard disks that have come recently into the consumer market use much more complicated physics. Checkout the following video:<br>
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/E7Up7VuFd8A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Q2 --> <quest>Why does my computer have two different memories namely RAM & ROM?</quest><br>
+
+    <p>
+      <b>Convenient Answer:</b> Consider the example that we discussed in the previous lecture - where binary data is communicated between two persons via hand gestures. One can understand that a human receiver cannot possibly remember a billion symbols all at once and process it all at one go. It may be his limitation that he could remember only 10 symbols at once and not more than that. In this case, he'll maintain a record of all the bits that he received by storing them in some physical form. The temporary memory that is stored in his head as he process the ten bits may understood as RAM; and the books in which he records this data may be understood as a ROM.
+    </p>
+
+    <figure>
+      <img class="video-container" style="width:80%" src="figures/RAM2ROM.png"
+	   alt='text to Binary'>
+      <!-- <figcaption>A screenshot of a recent article in Time of India which claims that C is still one of the most important languages to learn.</figcaption> -->
+    </figure>
+
+    <p>
+      <b>Actual answer:</b> The truth is that the distinction  between RAM and ROM is an artificial one and exists solely because we don't have a single storage medium that is both fast and vast as well as non-volatile. What we know today as "von Neumann architecture" -- the dominant computer architecture for over 50 years -- is a direct result of this deficiency[<a href="#codebook">Ref 1</a>]. 
+      Nevertheless, for all practical purposes one can understand that RAM is a memory that stays closers to the CPU and enables a quick way of reading and writing data; while ROM is where 
+    </p>
+    <a id="#codebook" href="https://www.amazon.in/Code-Dv-Undefined-Charles-Petzold/dp/0735611319/ref=sr_1_1?crid=33PLSSANUWYA0&dchild=1&keywords=code+petzold&qid=1612698001&sprefix=code+petz%2Caps%2C310&sr=8-1">[Ref 1] Code: The Hidden Language of Computer Hardware and Software</a><br>
+
+    
+  </body>
 </html>
