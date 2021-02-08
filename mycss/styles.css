@@ -150,6 +150,12 @@ body {
 img {
   max-width: 100%;
   height: auto;
+  transition:transform 0.25s ease;
+}
+
+img:hover {
+    -webkit-transform:scale(1.5); /* or some other value */
+    transform:scale(1.5);
 }
 
 @media (max-width:1000px) {
