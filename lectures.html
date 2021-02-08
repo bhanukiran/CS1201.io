@@ -187,12 +187,11 @@
 
       <hr>
 
-      <section> <!-- doing this differently because latex equations are not showing correctly with w2.includeHTML -->
-	<!-- <div w3-include-html="lec3.html"></div> -->
-	<iframe src="lec3.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-	<!-- <script> -->
-	<!--   w3.includeHTML(); -->
-	<!-- </script> -->
+      <section>
+	<div w3-include-html="lec3.html"></div>
+	<script>
+	  w3.includeHTML();
+	</script>
       </section>
       
     </div>
