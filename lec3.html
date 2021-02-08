@@ -61,12 +61,12 @@
 
     Consider for the following binary fraction number for example:
 
-    <div>
+    <div class="center">
 <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;(1101.001)_{2}&space;=&space;{1\times&space;2^{3}&space;&plus;&space;1\times&space;2^{2}&space;&plus;&space;0\times&space;2^{1}&space;&plus;&space;1\times&space;2^{0}}&space;&plus;&space;{0\times(\frac{1}{2})^{1}&space;&plus;&space;0\times(\frac{1}{2})^{2}&space;&plus;&space;1\times(\frac{1}{2})^{3}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\LARGE&space;(1101.001)_{2}&space;=&space;{1\times&space;2^{3}&space;&plus;&space;1\times&space;2^{2}&space;&plus;&space;0\times&space;2^{1}&space;&plus;&space;1\times&space;2^{0}}&space;&plus;&space;{0\times(\frac{1}{2})^{1}&space;&plus;&space;0\times(\frac{1}{2})^{2}&space;&plus;&space;1\times(\frac{1}{2})^{3}}" title="\LARGE (1101.001)_{2} = {1\times 2^{3} + 1\times 2^{2} + 0\times 2^{1} + 1\times 2^{0}} + {0\times(\frac{1}{2})^{1} + 0\times(\frac{1}{2})^{2} + 1\times(\frac{1}{2})^{3}}" /></a>
     </div>
     
     The convention is to write it as
-    <div>
+    <div class="center">
 <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;(1.101001)_{2}&space;\times&space;2^{3}&space;=&space;(1.\underbrace{101001}_\text{fraction})_{2}&space;\times&space;2^{(\overbrace{00000011}^\text{exponnent})_{2}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\LARGE&space;(1.101001)_{2}&space;\times&space;2^{3}&space;=&space;(1.\underbrace{101001}_\text{fraction})_{2}&space;\times&space;2^{(\overbrace{00000011}^\text{exponnent})_{2}}" title="\LARGE (1.101001)_{2} \times 2^{3} = (1.\underbrace{101001}_\text{fraction})_{2} \times 2^{(\overbrace{00000011}^\text{exponnent})_{2}}" /></a>
     </div>
 
@@ -84,7 +84,7 @@
     </figure>
 
     The 32-bits are interpreted the following way:
-    <div>
+    <div class="center">
 <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;{\displaystyle&space;(-1)^{b_{31}}\times&space;2^{(b_{30}b_{29}\dots&space;b_{23})_{2}&space;-127}\times&space;(1.b_{22}b_{21}\dots&space;b_{0})_{2},}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\LARGE&space;{\displaystyle&space;(-1)^{b_{31}}\times&space;2^{(b_{30}b_{29}\dots&space;b_{23})_{2}&space;-127}\times&space;(1.b_{22}b_{21}\dots&space;b_{0})_{2},}" title="\LARGE {\displaystyle (-1)^{b_{31}}\times 2^{(b_{30}b_{29}\dots b_{23})_{2} -127}\times (1.b_{22}b_{21}\dots b_{0})_{2},}" /></a>
     </div>
     <ol>
@@ -95,7 +95,7 @@
     Note that I'm still giving you just a chunk of 32 bits! Just that you know you need to interpret this as a 32-bit \texttt{float} because I tell you it is one! 
 
     
-    <div>
+    <div class="center">
 <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;\displaystyle&space;{\text{value}}=(-1)^{\text{sign}}\times&space;2^{(e-127)}\times&space;\left(1&plus;\sum&space;_{i=1}^{23}b_{23-i}2^{-i}\right)." target="_blank"><img src="https://latex.codecogs.com/png.latex?\LARGE&space;\displaystyle&space;{\text{value}}=(-1)^{\text{sign}}\times&space;2^{(e-127)}\times&space;\left(1&plus;\sum&space;_{i=1}^{23}b_{23-i}2^{-i}\right)." title="\LARGE \displaystyle {\text{value}}=(-1)^{\text{sign}}\times 2^{(e-127)}\times \left(1+\sum _{i=1}^{23}b_{23-i}2^{-i}\right)." /></a>
     </div>
 

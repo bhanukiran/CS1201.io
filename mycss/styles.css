@@ -56,15 +56,26 @@ table, th, td {
     height: 80%;
 }
 
+/* .center { */
+/*     display: block; */
+/*     margin-left: auto; */
+/*     margin-right: auto; */
+/*     width: 50%; */
+/* } */
+
 .center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
 }
 
+
 quest {
+    margin: auto;
+    width: 50%;
     color:#3337AC;
+    text-align: center;
     /* font-style: bold; */
     font-weight:450;
     font-size: 120%;
@@ -154,8 +165,8 @@ img {
 }
 
 img:hover {
-    -webkit-transform:scale(1.5); /* or some other value */
-    transform:scale(1.5);
+    -webkit-transform:scale(1.2); /* or some other value */
+    transform:scale(1.2);
 }
 
 @media (max-width:1000px) {
