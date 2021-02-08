@@ -3,39 +3,10 @@
   <head>
     <title>CS1201</title>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://www.w3schools.com/lib/w3data.js"></script>
-
-    <script>
-      function  w3IncludeHTML() {
-	  var z, i, elmnt, file, xhttp;
-	  /* Loop through a collection of all HTML elements: */
-	  z = document.getElementsByTagName("*");
-	  for (i = 0; i < z.length; i++) {
-	      elmnt = z[i];
-	      /*search for elements with a certain atrribute:*/
-	      file = elmnt.getAttribute("w3-include-html");
-	      if (file) {
-		  /* Make an HTTP request using the attribute value as the file name: */
-		  xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-		      if (this.readyState == 4) {
-			  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-			  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-			  /* Remove the attribute, and call this function once more: */
-			  elmnt.removeAttribute("w3-include-html");
-			  w3IncludeHTML();
-		      }
-		  } 
-		  xhttp.open("GET", file, true);
-		  xhttp.send();
-		  /* Exit the function: */
-		  return;
-	      }
-	  }
-      }
-    </script>
     
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- <script src="https://www.w3schools.com/lib/w3data.js"></script> -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -192,23 +163,38 @@
 	  <li><a href="#lec1" style="color: blue; font-size:20px;">Lecture 1</a>
 	  <li><a href="#lec2" style="color: blue; font-size:20px;">Lecture 2</a>
 	  <li><a href="#lec3" style="color: blue; font-size:20px;">Lecture 3</a>
-	  <!-- <li><a href="#lec3" style="color: blue; font-size:20px;">Lecture 3</a> -->
+	    <!-- <li><a href="#lec3" style="color: blue; font-size:20px;">Lecture 3</a> -->
 	</ul>
       </div>
 
       <hr>
+
+      <section>
+	<div w3-include-html="lec1.html"></div>
+	<script>
+	  w3.includeHTML();
+	</script>
+      </section>
+
+      <hr>
+
+      <section>
+	<div w3-include-html="lec2.html"></div>
+	<script>
+	  w3.includeHTML();
+	</script>
+      </section>
+
+      <hr>
+
+      <section> <!-- doing this differently because latex equations are not showing correctly with w2.includeHTML -->
+	<!-- <div w3-include-html="lec3.html"></div> -->
+	<iframe src="lec3.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+	<!-- <script> -->
+	<!--   w3.includeHTML(); -->
+	<!-- </script> -->
+      </section>
       
-      <section>
-	<iframe src="lec1.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-      </section>
-      <hr>
-      <section>
-        <iframe src="lec2.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-      </section>
-      <hr>
-      <section>
-        <iframe src="lec3.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-      </section>
     </div>
 
 
