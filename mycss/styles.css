@@ -65,9 +65,9 @@ table, th, td {
 
 quest {
     color:#3337AC;
-    font-style: bold;
-    font-weight:700;
-    font-size: larger;
+    /* font-style: bold; */
+    font-weight:450;
+    font-size: 120%;
 }
 
 
@@ -93,17 +93,24 @@ hr {
 h3 {
     color: darkred;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 150%;
 	       
 }
 
 h4 {
     color: #061D87;
-    font-size:150%;
+    font-size:140%;
 }
 
 body {
-    font-size: 111%;
+    text-align: center;
+}
+blockquote {
+    color: black;
+    width:50%;
+    position: relative;
+    padding: 0 5px;
+    margin: 0px auto;
 }
 
 /* // ------------------- */

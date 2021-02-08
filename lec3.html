@@ -6,69 +6,120 @@
 
   </head>
   <body>
-    <h4 id="lec3">[Lecture 3] Computational problems</h4>
+    <h3 id="lec3">[Lecture 3] Integers and fractions in binary system</h3>
 
-    <quest>What are computational problems?</quest><br>
+    <h4 id="lec3"><u>Integers</u></h4>
     
-    We are all familiar with the notion of a 'problem' in general usage of the word. Here are examples of some problems:
-    <div class="container" class="center">
-      <ol>
-	<li> What is the meaning of life?
-	<li> What is truth? What is perception?
-	<li style="font-weight:600"> How many of your Facebook friends are younger than you?
-	<li style="font-weight:600"> What is the cheapest air ticket to Tokyo this week?
-	<li> Does the tatoo look good on me?
-	<li style="font-weight:600"> Given a positive integer n, what is the nth prime number?
-	<li style="font-weight:600"> What is the average rainfall in south India in last 10 years?
-	<li> What will be the temperature in Hyderabad on 21 May 2032?
-	<li> Does my dog love me?
-	<li style="font-weight:600"> Does the polynomial <img src="http://latex.codecogs.com/svg.latex?2 x^{16} - 3 x^{11} + x^4 - 109 = 0"/>
-	  have an integer solution?
-      </ol>
-    </div>    
+    <quest>Suppose I give you the chunk of bits <code>11110101</code>, should you be able to tell what it is?</quest><br>
+    <ul>
+      <li>No, because I didn't tell you what I'm giving you. You should perhaps ask me - <i>"What is this?''</i>
+    </ul>
+    <quest>But suppose I tell you I'm giving you an <code>unsigned char</code>, should you be able to tell what it is?</quest>
+    <ul>
+      <li>Oh yes, you should know I just gave you the decimal number 245 represented in the 8-bit <code>unsigned char</code> format. Because the value of <img src="http://latex.codecogs.com/svg.latex?(11110101)_2"/> in decimal system is
+	<div lang="latex" class="center">
+	  1\times 2^7 + 1\times 2^6 + 1\times 2^5+ 1\times 2^4 + 0\times 2^3 + 1\times 2^2 + 0\times 2^1 + 1\times 2^0 = (245)_{10}.
+	</div>
+    </ul>
+    <quest>And, suppose I told you I'm giving you a <code>char</code> (which means it is a signed 8-bit integer), would you be able to tell what it is?</quest>
+    <ul>
+      <li>Again, yes. The first bit of <code><b>1</b><u>1110101</u></code> is <code><b>1</b></code> and that means it is a negative number. And the rest 7 bits <code><u>1110101</u></code> is acquired by performing the operation of two's complement on <code><u>0001011</u></code>, which itself is 11 (eleven) in decimal system. Therefore the number you just gave me is -11.
+    </ul>
+
+    You see how the same chunk of data <code>11110101</code> can mean two different things in two different contexts? The same holds with 32-bits and above of course. 
+
     <p>
-      The questions that are highlighted in the above list have something in common: they can all be solved by writing computer programs; and it is not the case with the others. Problems that can be solved by writing computer programs are called <i>computational problems</i>. More precisely, <span>a problem qualifies as a computational problem</span> when it satisfies the following properties:
-      <ol>
-	<li> <b>The problem statement should be absolutely unambiguous.</b>
-	  <ul style="list-style-type:square">
-	    <li>Questions such as <i>Does my dog love me?</i> and <i>What is the meaning of life?</i> do not qualify because they are ambiguous<a href="#footnote-1">[1]</a>.
-	  </ul>
-	<li> <b>The problem should have a <u>well defined</u> and <u>finite</u> input.</b>
-	  <ul style="list-style-type:square">
-	    <li> Questions such as <i>What will be the temperature in Hyderabad next year today?</i> may probably be answered if you know every minute detail about atmosphere of the entire planet, the factors that influence it, and the laws that govern them. But it is practically impossible to handle such huge amounts of data and to ensure the answer is correct.
-	  </ul>
-	<li> <b>The problem should expect a <u>well defined</u> and <u>finite</u> output.</b>
-	  <ul style="list-style-type:square">
-	    <li> If the answer to a question is not understandable, or if it is too huge to process in one life time, such questions are deemed to be useless and we don't adddress them.
-	  </ul>
-	<li> <b>The problem should be solvable by running a program on a realistic computer.</b>
-	  <ul style="list-style-type:square">
-	    <li>Since computers are physical devices, they should always obey the laws of physics and only possess realistic abilities. For instance, we cannot assume the existence of computers that can travel back in time. Eg:<i>How many times did it rain during the bronze age exactly?</i>
-	  </ul>
-      </ol>
-    </p>
-    <p id="footnote-1">[1]
-      The terms such as <i>love</i> and <i>meaning</i> are too vague for a machine.
+      Data becomes information only when the context is resolved. Without the knowledge of the context a chunk of bits can mean anything (and so practically useless). In programming languages such as <code>C</code> we make explicit this context by doing something called <i>type declaration</i>. But more about this later.
     </p>
 
-    <quest>Input and output?</quest><br>
+    Checkout the following website:<a href="https://www.binaryconvert.com/convert_unsigned_char.html">Binary Convert Online</a> and use the tool to convert back and forth between decimal and binary representations of numbers.
 
-    Rubik's cude -> 
+    <!-- ================================= -->
+    <h4><u>Fractions</u></h4>
 
-    Sudoku -> 
+    We have discussed in the class that constants and figures in science are represented in a certain standard format. Here are some examples:
 
-    Image -> filter, effects
+    <ul>
+      <li> <img src="http://latex.codecogs.com/svg.latex?G = 6.674 \times 10^{-11} \textup{N}\,\textup{m}^{2}\,\textup{kg}^{-2}"/> (also written as <img src="http://latex.codecogs.com/svg.latex?6.674\text{E}-11"/> sometimes)
+      <li> <img src="http://latex.codecogs.com/svg.latex?\text{Avg. Number} = 6.02214154 \times 10^{23}"/> (also written as <img src="http://latex.codecogs.com/svg.latex?6.02214154\text{E}+23"/> sometimes)
+    </ul>
 
-    Matrix -> determinant 
 
-    intuitive idea of method -> expressed clearly as an algorithm (often as a flowchart) -> instructions in a high level language -> arithmetic operations in machine level.
+    The convention here is to always have these constants expressed in three pieces:
+    <blockquote class="center" style="color:red">
+      <i>one digit, dot, a bunch of digits times 10 raised to an integer</i>
+    </blockquote>
+
+    <p>
+      Nobody writes <img src="http://latex.codecogs.com/svg.latex?G = 667.4 \times 10^{-13}"/>, although it is technically the same value. <b>Also, you will never see a non-integer sticking in the power of 10</b>. In physics, for instance, these standards are set by <a href="https://en.wikipedia.org/wiki/International_System_of_Units#Controlling_body">General Conference on Weights and Measures</a>. And in Computer Science, Electrical Engineering and Wireless technologies the standards are usually set by the <a href="https://en.wikipedia.org/wiki/IEEE_Standards_Association#:~:text=The%20Institute%20of%20Electrical%20and,health%20care%2C%20learning%20technology%2C%20information">IEEE Standards Association</a>. Engineers and scientists across the world comply with these standards purely because it enables us share code and technology across devices etc. Standards are the reason why the same mobile phone that works in Korea and Europe also works in India! To represent fractional values such as 1.24321, on a computer, there are certain standard ways of doing it (<a href="https://en.wikipedia.org/wiki/IEEE_754">click here for full info</a>).
+    </p>
+
+    Consider for the following binary fraction number for example:
+
+    <div lang="latex" class="center">
+      (1101.001)_{2} = {1\times 2^{3} + 1\times 2^{2} + 0\times 2^{1} + 1\times 2^{0}} + {0\times(\frac{1}{2})^{1} + 0\times(\frac{1}{2})^{2} + 1\times(\frac{1}{2})^{3}}
+    </div>
     
+    The convention is to write it as
+    <div lang="latex" class="center">
+      (1.101001)_{2} \times 2^{3} = (1.\underbrace{101001}_\text{fraction})_{2} \times 2^{(\overbrace{00000011}^\text{exponnent})_{2}}
+    </div>
+
+    This essentially enables us represent a fractional part using three pieces of information:
+    <blockquote class="center" style="color:red">
+      <i>sign, fraction, and exponent.</i>
+    </blockquote>
+
+    So if you are given 32-bits and asked to use it to represent fraction values, you could partition it the following way:
+    <figure>
+      <img class="video-container" src="figures/singleprec.png"
+	   alt='single prec.'>
+      <figcaption>representation of 0.15625 as a 32-bit float.</figcaption>
+    </figure>
+
+    The 32-bits are interpreted the following way:
+    <div lang="latex" class="center">
+      {\displaystyle (-1)^{b_{31}}\times 2^{(b_{30}b_{29}\dots b_{23})_{2} -127}\times (1.b_{22}b_{21}\dots b_{0})_{2},}
+    </div>
+    <ol>
+      <li> The first bit signifies the sign of the number (0 for positive, 1 for negative).
+      <li> The next 8-bits signify the exponent.
+      <li> and the remaining 23-bits are used to represent the bits that go into the fractional part.
+    </ol>
+    Note that I'm still giving you just a chunk of 32 bits! Just that you know you need to interpret this as a 32-bit \texttt{float} because I tell you it is one! 
+
+    
+    <div lang="latex" class="center">
+      \displaystyle {\text{value}}=(-1)^{\text{sign}}\times 2^{(e-127)}\times \left(1+\sum _{i=1}^{23}b_{23-i}2^{-i}\right).
+    </div>
+
+    
+    <p>
+      Go to the website
+      <a href="https://www.binaryconvert.com/convert_float.html">Binary Convertor Online</a>  and play around until you get familiarized with what's going on.
+      </p>
+
+    <figure>
+      <img class="video-container" src="figures/floatapprox.png"
+	   alt='single prec.'>
+      <figcaption> Why is 1.2 being approximated to 1.2000000476837158203125?</figcaption>
+    </figure>
+
+
+    <ol>
+      <li> When I tried to convert the decimal value 1.2 to 32-bit float, it shows as in above example. Can you explain what is happening here?
+      <li> Watch this video for an excellent overview of how float-point representation works.
+	
+    </ol>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/PZRI1IfStY0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+	
   </body>
 </html>
 
 
 
 
-    <!-- <div lang="latex" class="center"> -->
-      <!--   \frac{1+sin(x)}{y} -->
-      <!-- </div> -->
+
