@@ -116,8 +116,10 @@ h4 {
 body {
     text-align: center;
 }
+
 blockquote {
     color: black;
+    border: 3px solid green;
     width:50%;
     position: relative;
     padding: 0 5px;
