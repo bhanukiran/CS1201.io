@@ -18,7 +18,7 @@
     <ul>
       <li>Oh yes, you should know I just gave you the decimal number 245 represented in the 8-bit <code>unsigned char</code> format. Because the value of <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\large&space;(11110101)_2" target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;\large&space;(11110101)_2" title="\large (11110101)_2" /></a> in decimal system is
 
-	<div>
+	<div class="center">
 <a href="https://www.codecogs.com/eqnedit.php?latex=\LARGE&space;1\times&space;2^7&space;&plus;&space;1\times&space;2^6&space;&plus;&space;1\times&space;2^5&plus;&space;1\times&space;2^4&space;&plus;&space;0\times&space;2^3&space;&plus;&space;1\times&space;2^2&space;&plus;&space;0\times&space;2^1&space;&plus;&space;1\times&space;2^0&space;=&space;(245)_{10}." target="_blank"><img src="https://latex.codecogs.com/gif.latex?\LARGE&space;1\times&space;2^7&space;&plus;&space;1\times&space;2^6&space;&plus;&space;1\times&space;2^5&plus;&space;1\times&space;2^4&space;&plus;&space;0\times&space;2^3&space;&plus;&space;1\times&space;2^2&space;&plus;&space;0\times&space;2^1&space;&plus;&space;1\times&space;2^0&space;=&space;(245)_{10}." title="\LARGE 1\times 2^7 + 1\times 2^6 + 1\times 2^5+ 1\times 2^4 + 0\times 2^3 + 1\times 2^2 + 0\times 2^1 + 1\times 2^0 = (245)_{10}." /></a>
 	</div>
 
@@ -56,7 +56,10 @@
     </blockquote>
 
     <p>
-      Nobody writes <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;G&space;=&space;667.4&space;\times&space;10^{-13}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;G&space;=&space;667.4&space;\times&space;10^{-13}" title="G = 667.4 \times 10^{-13}" /></a>, although it is technically the same value. <b>Also, you will never see a non-integer sticking in the power of 10</b>. In physics, for instance, these standards are set by <a href="https://en.wikipedia.org/wiki/International_System_of_Units#Controlling_body">General Conference on Weights and Measures</a>. And in Computer Science, Electrical Engineering and Wireless technologies the standards are usually set by the <a href="https://en.wikipedia.org/wiki/IEEE_Standards_Association#:~:text=The%20Institute%20of%20Electrical%20and,health%20care%2C%20learning%20technology%2C%20information">IEEE Standards Association</a>. Engineers and scientists across the world comply with these standards purely because it enables us share code and technology across devices etc. Standards are the reason why the same mobile phone that works in Korea and Europe also works in India! To represent fractional values such as 1.24321, on a computer, there are certain standard ways of doing it (<a href="https://en.wikipedia.org/wiki/IEEE_754">click here for full info</a>).
+      Nobody writes <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;G&space;=&space;667.4&space;\times&space;10^{-13}" target="_blank"><img src="https://latex.codecogs.com/png.latex?\inline&space;G&space;=&space;667.4&space;\times&space;10^{-13}" title="G = 667.4 \times 10^{-13}" /></a>, although it is technically the same value. <b>Also, you will never see a non-integer sticking in the power of 10</b>. In physics, for instance, these standards are set by <a href="https://en.wikipedia.org/wiki/International_System_of_Units#Controlling_body">General Conference on Weights and Measures</a>. And in Computer Science, Electrical Engineering and Wireless technologies the standards are usually set by the <a href="https://en.wikipedia.org/wiki/IEEE_Standards_Association#:~:text=The%20Institute%20of%20Electrical%20and,health%20care%2C%20learning%20technology%2C%20information">IEEE Standards Association</a>. Engineers and scientists across the world comply with these standards purely because it enables us share code and technology across devices etc. Standards are the reason why the same mobile phone that works in Korea and Europe also works in India!
+    </p>
+    <p>
+      Therefore, to represent fractional values (such as 1.24321), in binary system on a computer, there are certain standard ways of doing it (<a href="https://en.wikipedia.org/wiki/IEEE_754">click here for full info</a>).
     </p>
 
     Consider for the following binary fraction number for example:
@@ -114,13 +117,31 @@
 
 
     <ol>
-      <li> When I tried to convert the decimal value 1.2 to 32-bit float, it shows as in above example. Can you explain what is happening here?
-      <li> Watch this video for an excellent overview on how float-point representation works.
-	
+      <li> When I tried to convert the decimal value 1.2 to 32-bit float, it shows as in above figure. Can you explain what is happening here?
+      <li> Watch this video for an excellent overview on how float-point representation works.	
     </ol>
+
+    
+    
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/PZRI1IfStY0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+
+    <figure>
+      <img class="video-container" src="figures/64bitfloat.png"
+	   alt='single prec.'>
+      <figcaption> <span>Why is 1.2 being approximated to 1.2000000476837158203125?</span>
+      </figcaption>
+    </figure>
+
+    
+    
+        <figure>
+      <img class="video-container" src="figures/datastypes.png"
+	   alt='single prec.'>
+      <figcaption> <span>Why is 1.2 being approximated to 1.2000000476837158203125?</span>
+      </figcaption>
+    </figure>
     
 	
   </body>
