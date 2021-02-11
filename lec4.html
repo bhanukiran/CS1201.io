@@ -2,32 +2,34 @@
 <html>
   <head>
     <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
-    <title>lec1</title>
+    <title>lec4</title>
 
   </head>
   <body>
-    <h4 id="lec4">[Lecture 3] Computational problems</h3>
+    <h3 id="lec4">[Lecture 4] Computational problems</h3>
 
     <quest>What are computational problems?</quest><br>
     
-    We are all familiar with the notion of a 'problem' in general usage of the word. Here are examples of some problems:
+    A <i>problem</i> usually presents itself in the form a <i>question</i>. There may be problems that cannot be articulated in the form questions, but we don't care for them. The following are some <i>problems</i>, that I am sure all of us can understand immediately:
     <div class="container" class="center">
       <ol>
 	<li> What is the meaning of life?
 	<li> What is truth? What is perception?
+	<li> Does the tatoo look good on me?
+	<li> Does my dog love me?
 	<li style="font-weight:600"> How many of your Facebook friends are younger than you?
 	<li style="font-weight:600"> What is the cheapest air ticket to Tokyo this week?
-	<li> Does the tatoo look good on me?
 	<li style="font-weight:600"> Given a positive integer n, what is the nth prime number?
-	<li style="font-weight:600"> What is the average rainfall in south India in last 10 years?
-	<li> What will be the temperature in Hyderabad on 21 May 2032?
-	<li> Does my dog love me?
 	<li style="font-weight:600"> Does the polynomial <img src="http://latex.codecogs.com/svg.latex?2 x^{16} - 3 x^{11} + x^4 - 109 = 0"/>
 	  have a real solution?
+	<li> What will be the temperature in Hyderabad on 21 May 2032?
       </ol>
     </div>    
     <p>
-      The questions that are highlighted in the above list have something in common: they can all be solved by writing computer programs; and it is not the case with the others. Problems that can be solved by writing computer programs are called <i>computational problems</i>. More precisely, <span>a problem qualifies as a computational problem</span> when it satisfies the following properties:
+      The questions that are highlighted in the above list have something in common: they can all be solved by writing computer programs; and it is not the case with the others. Problems that can be solved by writing computer programs may straight away be called the <i>computational problems</i>. A more precise description would be as follows:
+    </p>
+    <p>
+      <span>A problem qualifies as a computational problem</span> when it satisfies the following properties:
       <ol>
 	<li> <b>The problem statement should be absolutely unambiguous.</b>
 	  <ul style="list-style-type:square">
@@ -48,27 +50,43 @@
       </ol>
     </p>
     <p id="footnote-1">[1]
-      The terms such as <i>love</i> and <i>meaning</i> are too vague for a machine.
+      Terms such as <i>love</i> and <i>meaning</i> are too vague for a machine to define quantitatively.
     </p>
 
-    <quest>Input and output?</quest><br>
-
-    Rubik's cude -> 
-
-    Sudoku -> 
-
-    Image -> filter, effects
-
-    Matrix -> determinant 
-
-    intuitive idea of method -> expressed clearly as an algorithm (often as a flowchart) -> instructions in a high level language -> arithmetic operations in machine level.
+    <h4>Some examples of computational problems</h4>
     
+    <ol>
+      <li>
+	<span>Solving a Rubik's cube is certainly a computational problem for we know there exist robots that can do it.</span>
+        <figure>
+	  <img class="middle" width="25%" src="figures/rubiks.png"
+	       alt='rubiks'>
+	</figure>
+	But before you want to write a program that can solve a cube, you have to have to decide how you plan to represent the cube. You cannot obviously be forcing the physical cube into the computer screen and expect it not to break &#x1F601;! Is your program expecting an image of the cube? Or does it work a textual representation of the cube? Checkout this discussion for instance: <a href="https://stackoverflow.com/questions/500221/how-would-you-represent-a-rubiks-cube-in-code">How would you represent a Rubik's Cube in code?</a>. If your program works on an image, this clearly means your getting into a zone where you may need to use libraries (libraries are just well-tested already written by people). If your program only uses <i>text</i>as the input and output, we say it just uses <i>standard</i> input and output.
+      </li>
+
+      <li><span>Likewise, solving a Sudoku puzzle is also a computational problem because we know that there are <a href="https://play.google.com/store/apps/details?id=com.alkobyshai.sudokusolver&hl=en&gl=US">programs<a> that do it very fast.</span>
+	<figure>
+	  <img class="middle" width="50%" src="figures/sudoku.png"
+	       alt='sudoku'>
+	</figure>
+	Do note that Sudoku puzzle with less than 17 initial entries does not have a unique solution! You have to study such background details before jumping into solving problems. (Check this:<a href="https://www.technologyreview.com/2012/01/06/188520/mathematicians-solve-minimum-sudoku-problem/">Mathematicians Solve Minimum Sudoku Problem<a>)
+      </li>
+      <li>
+	<span>The following is a very typical (and simple) computational problem.</span>
+	<figure>
+	  <img class="middle" width="85%" src="figures/triples.png"
+	       alt='triples'>
+	</figure>
+	In here, the input is N and the output is the no. of triples - both are positive integers. Unlike in the case of Rubik's cube and Sudoku, the input and output themselves are not sophisticated. The sophistication lies in coming up with a <i>quick</i> way of finding all the triples whose sum is less than N particularly when the N is very large (eg: N = 100000000000). These are typically the kind of questions that you find in most of the coding competitions.
+      </li>
+    </ol>
   </body>
 </html>
 
 
 
 
-    <!-- <div lang="latex" class="center"> -->
-      <!--   \frac{1+sin(x)}{y} -->
-      <!-- </div> -->
+<!-- <div lang="latex" class="center"> -->
+  <!--   \frac{1+sin(x)}{y} -->
+  <!-- </div> -->
