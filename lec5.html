@@ -1,0 +1,157 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+    <title>lec5</title>
+
+  </head>
+  <body>
+    <h3 id="lec5">[Lecture 5] Computer programs and Algorithms </h3>
+
+    <quest>Why do we write computer programs?</quest>
+    <p>
+      We write computer programs to solve problems. We start with solving made-up <i>academic</i> problems for starters, and gradually ramp up to problems of higher difficulty. We nurture the skill of problem solving using computers in hope that one day we may be able to solve a problems that no one else could solve and that's probably when we can say our learning has come to fruition.
+    </p>
+
+    <quest>Instead, can't we just yell and <i>command</i> the machines to solve problems?</quest>
+    <p>
+      We so wish we could! But unfortunately we don't have programs intelligent enough to understand problem statements (in language like English), analyze them logically, and also come up with solutions. Although we see programs like Alexa, Siri and Google's voice assistant attempting to do this, we should keep in mind that they are only <u>programmed to pretend</u> like they understand human language. Their abilities are severely limited. These seemingly <i>intelligent</i> programs have still a long way to go before <i>understanding</i> human language with all its subtleties. Fact is we still haven't been able to design programs that can undertake creative tasks such as proving theorems and solving problems. In fact, we don't even know if we'd be able to do it in the future. Therefore, <i>commanding</i> a computer vocally to solve arbitrary problems is too far fetched. At least until that is achieved, we have to write programs in languages that machines can understand to solve problems - namely the programming languages.
+    </p>
+
+    <quest>How is a programming language different from a natural language?</quest>
+    <p>
+      Loosely speaking, they are not all that different. Except that a programming language is too <i>simple</i> for a human mind to express <i>freely</i>. Also, unlike English and other naural languages the grammar of a programming language is extremely simple and vocabulary is ridiculously restricted. As a matter of fact, the <i>words</i> seen in the below table are all the words that are officially part of <code>C</code> langauge. Which means any <code>C</code> program we write only consists of these 40 words along with the names we create and a small set of symbols. And the entire grammar of a programming language can be fully specified in less than a couple of pages  (check this: <a href="https://cs.wmich.edu/~gupta/teaching/cs4850/sumII06/The%20syntax%20of%20C%20in%20Backus-Naur%20form.htm">C grammar</a> and this: <a href="https://docs.python.org/3/reference/grammar.html">Python grammar</a>). When you compare this with volumes of books written on the grammars forof languages like English, French, Telugu, Tamil etc. you realize what we mean by saying programming languages are too <i>simple</i> for humans. For someone who's learning to program this may feel restrictive, but eventually one gets used to it. 
+      
+      
+    </p>
+    
+    <div style="overflow-x:auto;">
+      <table width="100%" style="table-layout: fixed;">
+	<caption>Vocabulary of C programming language (alphabetic order)</caption>
+	<tr>
+	  <td> auto</td>
+	  <td> break</td>
+	  <td> case</td>
+	  <td> char</td>
+	</tr>
+	<tr>
+	  <td> const</td>
+	  <td> continue</td>
+	  <td> default</td>
+	  <td> do</td>
+	</tr>
+	<tr>
+	  <td> double</td>
+	  <td> else</td>
+	  <td> enum</td>
+	  <td> extern</td>
+	</tr>
+	<tr>
+	  <td> float</td>
+	  <td> for</td>
+	  <td> goto</td>
+	  <td> if</td>
+	</tr>
+	<tr>
+	  <td> int</td>
+	  <td> long</td>
+	  <td> register</td>
+	  <td> return</td>
+	</tr>
+	<tr>
+	  <td> short</td>
+	  <td> signed</td>
+	  <td> sizeof</td>
+	  <td> static</td>
+	</tr>
+	<tr>
+	  <td> struct</td>
+	  <td> switch</td>
+	  <td> typedef</td>
+	  <td> union</td>
+	</tr>
+	<tr>
+	  <td> unsigned</td>
+	  <td> void</td>
+	  <td> volatile</td>
+	  <td> while</td>
+	</tr>
+      </table>
+    </div>
+
+    <quest>What is a computer program?</quest>
+    <p>
+      The process of solving a problem on a computer roughly goes through the following steps:
+      <ol>
+	<li> At first you have an intuitive idea of how to solve a problem - a precise step by step procedure by which you may attain the solution.
+	  <ul>
+	    <li> <b>For example:</b> Imagine you want to find the roots of the algebraic expression  <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\large&space;3&space;x&space;-&space;2&space;x^{2}&space;&plus;&space;2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\large&space;3&space;x&space;-&space;2&space;x^{2}&space;&plus;&space;2" title="\large 3 x - 2 x^{2} + 2" /></a>
+	      <ul>
+		<li> First, you identify it as a quadratic expression. </li>
+		<li> Second, you write in the form of increasing order of degree of <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\large&space;x" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\large&space;x" title="\large x" /></a> as: <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\large&space;-&space;2&space;x^{2}&space;&plus;&space;3&space;x&space;&plus;&space;2&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\large&space;-&space;2&space;x^{2}&space;&plus;&space;3&space;x&space;&plus;&space;2&space;=&space;0" title="\large - 2 x^{2} + 3 x + 2 = 0" /></a> </li>
+		<li> We assign values to the variables as <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\large&space;a&space;=&space;-2,&space;b&space;=&space;3,&space;c&space;=&space;2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\large&space;a&space;=&space;-2,&space;b&space;=&space;3,&space;c&space;=&space;2" title="\large a = -2, b = 3, c = 2" /></a> and evaluate the values <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;\frac{-b&space;\pm&space;\sqrt{b^{2&space;-&space;2&space;a&space;c}}}{2&space;a}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\inline&space;\frac{-b&space;\pm&space;\sqrt{b^{2&space;-&space;2&space;a&space;c}}}{2&space;a}" title="\frac{-b \pm \sqrt{b^{2 - 2 a c}}}{2 a}" /></a>
+	      </ul>
+	    <li> This precise step-by-step instructions to solve a problem is also called an <b>Algorithm</b>.
+	  </ul>
+	<li> We create a text file (eg: quadraticSolver.c) in which we express this step-by-step procedure in a programming language. This text file - a set of instructions written in a given programming language - is what we refer to as a computer program. </li>
+	<li> We then feed this text file into an already existing program called <i>the compiler</i> which takes the pain of doing the following two things:</li>
+	<ol>
+	  <li> Checks if the instructions written in the text file follow the grammar rules of the language. If there any grammatical errors, it will complain and stops the compilation process.</li>
+	  <li> Converts these instructions to a machine level code stored in a file called the executable.
+	</ol>
+	<lI> Finally, as the last step, when we <i>execute</i> the <i>executable</i> the CPU performs the logical operations to complete the process of computation. This executable file is specific to a processor (Intel/AMD, version etc) and operating system and may not work on someone else's computer.</lI>
+      </ol>
+      In this entire process, creation of the computer program in step 2 is the most crucial part and that's what keeps us busy as programmers.
+    </p>
+
+    
+    <figure class="center">
+      <img  width="80%" src="figures/codeFlow.png"
+	    alt='codeFlow'>
+      <figcaption>When a compiler rejects a syntactically wrong program, you dutifully go back and correct the program. This process is called <i>debugging</i>.</figcaption>
+    </figure>
+
+    <quest>What happens if my <b>algorithm</b> is wrong?</quest>
+    <p>
+      When you think you have a solution to a problem, you better have a solution that is <i>correct</i>! If your solution is wrong, naturally you face undesired consequences.
+    </p>
+    <p>
+      An algorithm has to be correct, and the onus is on you to make sure it is correct. When you claim you have a solution to a problem, is it not your responsibility to present a step-by-step procedure to solve it? Also it is your responsibility to check if an algorithm is correct before implementing it as a computer program in some language.
+    </p>
+
+    <figure class="center">
+      <img  width="80%" src="figures/troll_algo3.jpg"
+	    alt='troll3'>
+      <figcaption>A ridiculous example of a wrong algorithm!</figcaption>
+    </figure>
+
+
+    <figure>
+      <blockquote>
+        <p><b>Fact 1:</b> If you have a correct algorithm you should be able to implement it in any programming language. This implies that there doesn't exist a problem that can be solved in one language and cannot be solved in another.</p>
+      </blockquote>
+    </figure>
+
+        <figure>
+      <blockquote>
+        <p><b>Fact 2:</b> If you have a wrong algorithm it will fail no matter how great your computer is, and how awesome your programming language is. Therefore, if you come up with a correct algorithm, you have at least come half way through. Implementing it in a program language successfully is only a matter of practice (Read: <a href="https://learntocodewith.me/posts/algorithmic-thinking/">A Beginner’s Guide to Algorithmic Thinking</a>)</p>
+      </blockquote>
+    </figure>
+    
+    
+    <!-- <quest>Why are we learning <code> C </code>?</quest> -->
+    <!-- <p> -->
+      <!--   Transitioning from a relatively lower level language (like <code>C</code>) to higher level language (like <code>Python</code> or <code>Java</code>) is much easier than going the other way. Because,  -->
+      <!-- </p>  -->
+
+    
+
+    
+    <!-- In computer programming, a <u>variable</u> is like a <b>small box</b> (located in the RAM) in which you can store binary data. The <i>amount</i> and the <i>kind</i> of data that a given variable can accommodate depends on the <i>type</i> of the variable. As it turns out we use variables all the time to perform computations just like how we use variables in mathematics and physics. To distinguish among different variables, each variable is given a unique name at the time of creation. The step during which a variable is named and its type is declared is called variable declaration. A typical declaration statement looks like this: -->
+
+
+
+
+
+    
+  </body>
+</html>
