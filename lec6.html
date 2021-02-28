@@ -10,7 +10,7 @@
     
   </head>
   <body>
-    <h3 id="lec6">[Lecture 6] Variables </h3>
+    <h3 id="lec6">[Lecture 6] Prorgamming in C (Variables) </h3>
 
         <figure class="center">
       <img  width="90%" src="figures/bits_bytes.gif"
@@ -31,12 +31,15 @@
 	    float x = 3.1;
 	}
     </code></pre>
-
+    <p>
     In the above C code, two different variables have been declared:
     <ul>
       <li> <code>n</code> as an <code>int</code> and has been assigned a value 32.</li>
       <li> and, <code>x</code> as a <code>float</code> and has been assigned assigned a value 3.1.
     </ul>
+
+    The symbole <code>=</code> has an entirely different meaning in computer science as compared with its usage in mathematics. In mathematics when we see a statement such as <code>x = 2</code> it essentially means that the value of <code>x</code> being equal to 2 is a <i>fact</i> and it remains true in the rest of the argument. However in computer science, the symbol <code>=</code> is what is called an assignment operator that has a certain action associated to it. It basically the value to its right-hand-side and <i>assigns</i> it to the symbol on its left-hand-side. A variable that is declared but not assigned any value may assume a some arbitrary value. That's because, by declaring the variable, you created a box in the RAM in place that may have been used by some other application so the value it assumes could be random.
+    </p>
 
     <p>
       From this point of code, the names <code>n</code> and <code>x</code> refer to two <i>boxes</i> both containing 32 bits. But, since we know that <code>n</code> is an <code>int</code> and <code>x</code> is a <code>float</code>, the boxes will be interpreted differently.
@@ -48,21 +51,101 @@
 	<li> Uppercase and lowercase are significant. That is the variable Totamt is not the same as numCandies and NumCandies.
 	<li> The variable name may not be a C reserved word (<a href="#Cvocab">Look: C Keywords</a>).
       </ol>
+      And, also, 
     </p>
 
+    
     <quest>A variable thus born, what is its lifetime?</quest>
     <p>
-      A variable that is initialized as shown above stays <i>alive</i> within its <i>scope</i>. Where <u>scope</u> is the region within the closest pair of braces that enclose the variable. For instance in the following program the life of <code>n</code> is confined within lines:4-6. Beyond that you cannot access it. Which means, the box that was named <code>n</code> is no more reserved for it and hence any
+      A variable that is initialized as shown above stays <i>alive</i> only within its <i>scope</i>. Where <u>scope</u> is the region within the closest pair of braces that enclose the variable. For instance in the following program the life of <code>n</code> is confined within lines:4-6. Beyond that you cannot access it.
+    </p>
 <pre class="C"><code>
 #include &lt;stdio.h&gt;
 int main(){
-{ //start
-  int n = 32;
-} //end
-  float x = 3.1;
-}</code></pre>
+    { //start
+	int n = 32;
+    } //end
+    float x = 3.1;
+    }</code></pre>
 
-<quest> Suppose I create a variable <code>int x = 32;</code> and I want to convert it to a float, can I do that?</quest>
+    <p>
+      A variable name cannot be reused within a scope:
+    </p>
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+    int x = 432;
+    float x = 3.1; //this leads to an error due to redefinition of ‘x’
+    }</code></pre>    
+
+    <quest> Suppose I created a variable <code>int x = 32;</code> and I want to convert it to a float, can I do that?</quest>
+    <p>
+      You cannot change the type of a variable within its scope, but you can access its value and <i>cast</i> the value into a compatible format. <u>Compatibility</u> is a key issue here. A <code>32-bit-int</code> can be cast to a <code>32-bit-float</code> easily, but casting a <code>float</code> to an <code>int</code> takes only the integer value - this is called truncation. Therefore the compatibility is not necessarily symmetric. Similarly, a <code>32-bit-int</code> can be cast to a <code>32-bit-long</code> and the other way is not possible. 
+    </p>
+    <p>
+      In order to convert a value &lt;val&gt; of any type to a value of &lt;different_type&gt; we use the following command:
+    </p>
+    <p class="center">
+      <code> (&lt;different_type&gt;)&lt;val&gt;</code>
+    </p>
+
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+    float x = 12.34;;
+    double y = -21.213;
+    int n = 32;
+    double huge_x = 5678.3213;
+    }</code></pre>        
+
+
+    <div style="overflow-x:auto;">
+      <table id="Cvocab" width="100%">
+	<caption>Vocabulary of C programming language (alphabetic order)</caption>
+	<tr>
+	  <th>Type casting command</th>
+	  <th>The new value</th>
+	</tr>
+	<tr>
+	  <td><code>(int)x</code></td>
+	  <td> the truncated integer 12</td>
+	</tr>
+	<tr>
+	  <td><code>(double)x</code></td>
+	  <td>Same value of <code>x</code> but as a 64-bit float format</td>
+	</tr>
+	<tr>
+	  <td><code>(char)y</code></td>
+	  <td>-21</td>
+	</tr>
+	<tr>
+	  <td><code>(char)huge_x</code></td>
+	  <td> some unexpected value because the number is too huge for a char</td>
+	</tr>
+      </table>
+    </div>
+
+    <quest>How to input and output variable values?</quest>
+    <p>
+      Not all computers have monitors! And not all programs 'print' stuff on screens. Imagine the router that you are probably connect to right now - there is computation going on in it, but it doesn't print anything anywhere does it? The <code>#include &lt;stdio.h&gt</code> directive that we often at the top of our C programs essentially gives the program the ability to interact with the use by taking inputs and giving outputs from the screen.
+    </p>
+<!--     <p> -->
+<!--       If  -->
+<!--     </p> -->
+<!--     <p> -->
+<!--       To print the values of <code>int</code>s and <code>float</code>s, we use the 'placeholders' <code>%d</code> and <code>%f</code> as shown in the example below. -->
+<!--     </p> -->
+
+<!-- <pre class="C"><code> -->
+<!-- #include &lt;stdio.h&gt; -->
+<!-- int main(){ -->
+<!--   int pages = 250; //no. pages in a book -->
+<!--   float price = 100.5; //price of the book -->
+
+<!--   printf("The book has %d pages, and it costs %f rupees\n" , pages, price); -->
+<!--   return 0;  -->
+<!-- }</code></pre>             -->
+
     
   </body>
 </html>
