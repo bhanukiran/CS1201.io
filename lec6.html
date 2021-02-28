@@ -1,32 +1,68 @@
 
 
 <html>
-  <head>
+  <head>    
     <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
-    <title>lec6</title>
 
+    <title>lec6</title>
+    
+
+    
   </head>
   <body>
     <h3 id="lec6">[Lecture 6] Variables </h3>
 
-    <p>
-      In computer programming, a <u>variable</u> is like a <b>small box</b> (located in the RAM) in which you can store data.
-    </p>
-    
-    <figure class="center">
-      <img  width="80%" src="figures/bits_bytes.gif"
+        <figure class="center">
+      <img  width="90%" src="figures/bits_bytes.gif"
 	    alt='troll3'>
-      <figcaption>How stuff changes in the RAM as we run programs on a computer. Check this out for an excellent overview:<a href="https://www.futurelearn.com/info/courses/how-computers-work/0/steps/49282">Future Learn: Storing bits and bytes
+      <figcaption>As we run programs on a computer this is pretty much how data gets re-written on the RAM - only much a billion times much faster! Check this out for an excellent overview:<a href="https://www.futurelearn.com/info/courses/how-computers-work/0/steps/49282">Future Learn: Storing bits and bytes
 	</a>
       </figcaption>
     </figure>
-
+    
     <p>
-    The <i>amount</i> and the <i>kind</i> of data that a given variable can accommodate depends on the <i>type</i> of the variable. As it turns out we use variables all the time to perform computations just like how we use variables in mathematics and physics. Each variable is uniquely identified by a name and a type at the time of its creation (variable declaration). A typical declaration statement looks like this:
+      We know how often we use variables in science and mathematics. In computer science also you see variable being used in almost all the programs. However, in computer programming, rather than being abstract symbols, variables are like <b>small boxes</b> (located in the RAM) in which binary data is stored. Every variable that we use in a program has a unique <i>physical</i> location in the RAM of the computer. The <i>amount</i> and the <i>kind</i> of data that a given variable can accommodate depends on the <i>type</i> of the variable. Each variable is uniquely identified by a name and a type at the time of its creation (variable declaration). So long as the variable is <i>alive</i>, the box with a label is kept avialable in the RAM.
     </p>
 
-    
+    <pre><code class="C">
+	#include &lt;stdio.h&gt;
+	int main(){
+	    int n = 32;
+	    float x = 3.1;
+	}
+    </code></pre>
 
+    In the above C code, two different variables have been declared:
+    <ul>
+      <li> <code>n</code> as an <code>int</code> and has been assigned a value 32.</li>
+      <li> and, <code>x</code> as a <code>float</code> and has been assigned assigned a value 3.1.
+    </ul>
+
+    <p>
+      From this point of code, the names <code>n</code> and <code>x</code> refer to two <i>boxes</i> both containing 32 bits. But, since we know that <code>n</code> is an <code>int</code> and <code>x</code> is a <code>float</code>, the boxes will be interpreted differently.
+
+      <ol>
+	<li> A variable name may only consist of letters, digits and the underscore (_) characters.
+	<li> A variable name must begin with a letter. But <u>never</u> with a numeral digit.
+	<li> Although, there may not be a strict upper limit on the length of the variable name, it if better keep it short and sensible.
+	<li> Uppercase and lowercase are significant. That is the variable Totamt is not the same as numCandies and NumCandies.
+	<li> The variable name may not be a C reserved word (<a href="#Cvocab">Look: C Keywords</a>).
+      </ol>
+    </p>
+
+    <quest>A variable thus born, what is its lifetime?</quest>
+    <p>
+      A variable that is initialized as shown above stays <i>alive</i> within its <i>scope</i>. Where <u>scope</u> is the region within the closest pair of braces that enclose the variable. For instance in the following program the life of <code>n</code> is confined within lines:4-6. Beyond that you cannot access it. Which means, the box that was named <code>n</code> is no more reserved for it and hence any
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+{ //start
+  int n = 32;
+} //end
+  float x = 3.1;
+}</code></pre>
+
+<quest> Suppose I create a variable <code>int x = 32;</code> and I want to convert it to a float, can I do that?</quest>
     
   </body>
 </html>

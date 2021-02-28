@@ -3,6 +3,10 @@
   <head>
     <title>CS1201</title>
 
+    <link rel="stylesheet" href="../javascripts/styles/default.css">
+    <script src="../javascripts/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- <script src="https://www.w3schools.com/lib/w3data.js"></script> -->
@@ -212,7 +216,7 @@
     <!-- 	<script> -->
     <!-- 	  w3.includeHTML(); -->
     <!-- 	</script> -->
-    <!--   </section>       -->
+    <!--   </section> -->
     <!-- </div> -->
 
     <!-- <hr> -->
@@ -220,14 +224,36 @@
     <section>
       <div w3-include-html="lec6.html"></div>
       <script>
-	w3.includeHTML();
-      </script>
+	w3.includeHTML(myCallback2);
+
+	function myCallback1(){
+	    hljs.initHighlighting.called = false;
+	    hljs.initHighlighting();
+	}
+	
+	function myCallback2(){
+	    var pre = document.querySelectorAll('pre code'),
+		pl = pre.length;
+	    for (var i = 0; i < pl; i++) {
+		pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+		var num = pre[i].innerHTML.split(/\n/).length;
+		for (var j = 0; j < num; j++) {
+		    var line_num = pre[i].getElementsByTagName('span')[0];
+		    line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+		}
+	    }
+
+	    hljs.initHighlighting.called = false;
+	    hljs.initHighlighting();
+	};
+	</script>
+
     </section>      
 </div>
 
 
-    <iframe src="footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-  </body> 
+<iframe src="footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+</body> 
 
 </html>
 

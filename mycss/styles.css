@@ -57,11 +57,36 @@ table, th, td {
     height: 80%;
 }
 
-pre code {
-  background-color: #eee;
-  border: 1px solid #999;
-  display: block;
-  padding: 20px;
+pre {
+  background-color:#eee;
+  overflow:auto;
+  margin:0 0 1em;
+  padding:.5em 1em;
+  counter-reset: line 0;
+}
+
+pre code,
+pre .line-number {
+  font:normal normal 14px/16px "Courier New",Courier,Monospace;
+  color:black;
+  display:block;
+}
+
+pre .line-number {
+  float:left;
+  margin:0 1em 0 1em;
+  border-right:1px solid;
+  text-align:down;
+}
+
+pre .line-number span {
+  display:block;
+  padding:0 .5em 1 1em;
+}
+
+pre .cl {
+  display:block;
+  clear:both;
 }
 
 /* .center { */
@@ -129,6 +154,7 @@ h4 {
 
 body {
     text-align: center;
+    padding:50px 50px}
 }
 
 blockquote {
@@ -195,6 +221,7 @@ img:hover {
 
 .add-margin {
     text-align: left; } 
+
 #title {
     text-align: center;
     margin-top: 20px; }
