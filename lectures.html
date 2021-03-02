@@ -3,6 +3,16 @@
   <head>
     <title>CS1201</title>
 
+    <link rel="stylesheet" href="./javascripts/styles/default.css">
+    <script src="./javascripts/highlight.pack.js"></script>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css"> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> -->
+    <!-- <\!-- and it's easy to individually load additional languages -\-> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/go.min.js"></script> -->
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+
     
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <!-- <script src="https://www.w3schools.com/lib/w3data.js"></script> -->
@@ -159,66 +169,101 @@
       
       <div>
 	<h3 class="toc_title"><u>Contents</u></h3>
+
+	Disclaimer: The following notes are not meant to be complete or a substitute to the prescribed references. They should only be seen as complementary to the material discussed during the lectures, labs and tutorials.
+	
 	<ul class="toc_list" style="margin-left: 30px;">
 	  <li><a href="#lec1" style="color: blue; font-size:20px;">Lecture 1</a>
 	  <li><a href="#lec2" style="color: blue; font-size:20px;">Lecture 2</a>
 	  <li><a href="#lec3" style="color: blue; font-size:20px;">Lecture 3</a>
 	  <li><a href="#lec4" style="color: blue; font-size:20px;">Lecture 4</a>
 	  <li><a href="#lec5" style="color: blue; font-size:20px;">Lecture 5</a>
-	    <!-- <li><a href="#lec3" style="color: blue; font-size:20px;">Lecture 3</a> -->
+	  <li><a href="#lec6" style="color: blue; font-size:20px;">Lecture 6</a>
 	</ul>
       </div>
 
       <hr>
 
+      <p>
       <section>
-	<div w3-include-html="lec1.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
+    	<div w3-include-html="lec1.html"></div>
+    	<script>
+    	  w3.includeHTML();
+    	</script>
       </section>
 
       <hr>
 
       <section>
-	<div w3-include-html="lec2.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
+    	<div w3-include-html="lec2.html"></div>
+    	<script>
+    	  w3.includeHTML();
+    	</script>
       </section>
 
       <hr>
 
       <section>
-	<div w3-include-html="lec3.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
-      </section>
-
-      <hr>
-      
-      <section>
-	<div w3-include-html="lec4.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
+    	<div w3-include-html="lec3.html"></div>
+    	<script>
+    	  w3.includeHTML();
+    	</script>
       </section>
 
       <hr>
       
       <section>
-	<div w3-include-html="lec5.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
-      </section>      
+    	<div w3-include-html="lec4.html"></div>
+    	<script>
+    	  w3.includeHTML();
+    	</script>
+      </section>
+
+      <hr>
+      
+      <section>
+    	<div w3-include-html="lec5.html"></div>
+    	<script>
+    	  w3.includeHTML();
+    	</script>
+      </section>
     </div>
 
+    <hr>
+    
+    <section>
+      <div w3-include-html="lec6.html"></div>
+      <script>
+	w3.includeHTML(myCallback2);
+
+	function myCallback1(){
+	    hljs.initHighlighting.called = false;
+	    hljs.initHighlighting();
+	}
+	
+	function myCallback2(){
+	    var pre = document.querySelectorAll('pre code'),
+		pl = pre.length;
+	    for (var i = 0; i < pl; i++) {
+		pre[i].innerHTML = '<span class="line-number"></span>' + pre[i].innerHTML + '<span class="cl"></span>';
+		var num = pre[i].innerHTML.split(/\n/).length;
+		for (var j = 0; j < num; j++) {
+		    var line_num = pre[i].getElementsByTagName('span')[0];
+		    line_num.innerHTML += '<span>' + (j + 1) + '</span>';
+		}
+	    }
+
+	    hljs.initHighlighting.called = false;
+	    hljs.initHighlighting();
+	};
+	</script>
+
+    </section>      
+</div>
 
 
-    <iframe src="footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
-  </body> 
+<iframe src="footer.html" onload="this.insertAdjacentHTML('afterend', (this.contentDocument.body||this.contentDocument).innerHTML);this.remove()"></iframe>
+</body> 
 
 </html>
 
