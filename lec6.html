@@ -15,7 +15,7 @@
         <figure class="center">
       <img  width="90%" src="figures/bits_bytes.gif"
 	    alt='troll3'>
-      <figcaption>As we run programs on a computer this is pretty much how data gets re-written on the RAM - only much a billion times much faster! Check this out for an excellent overview:<a href="https://www.futurelearn.com/info/courses/how-computers-work/0/steps/49282">Future Learn: Storing bits and bytes
+      <figcaption><strong>As we run programs on a computer this is pretty much how data gets re-written on the RAM - only much a billion times much faster!</strong> Checkout the video in this link for an excellent overview:<a href="https://www.futurelearn.com/info/courses/how-computers-work/0/steps/49282">Future Learn: Storing bits and bytes
 	</a>
       </figcaption>
     </figure>
@@ -60,7 +60,7 @@
       A variable that is initialized as shown above stays <i>alive</i> only within its <i>scope</i>. Where <u>scope</u> is the region within the closest pair of braces that enclose the variable. For instance in the following program the life of <code>n</code> is confined within lines:4-6. Beyond that you cannot access it.
     </p>
 <pre class="C"><code>
-#include &lt;stdio.h&gt;
+
 int main(){
     { //start
 	int n = 32;
@@ -72,25 +72,25 @@ int main(){
       A variable name cannot be reused within a scope:
     </p>
 <pre class="C"><code>
-#include &lt;stdio.h&gt;
+
 int main(){
     int x = 432;
     float x = 3.1; //this leads to an error due to redefinition of ‘x’
     }</code></pre>    
 
-    <quest> Suppose I created a variable <code>int x = 32;</code> and I want to convert it to a float, can I do that?</quest>
+<quest> Suppose I created a variable <code>int x = 32;</code> and I want to convert it to a <code>float</code>, can I do that?</quest>
     <p>
       You cannot change the type of a variable within its scope, but you can access its value and <i>cast</i> the value into a compatible format. <u>Compatibility</u> is a key issue here. A <code>32-bit-int</code> can be cast to a <code>32-bit-float</code> easily, but casting a <code>float</code> to an <code>int</code> takes only the integer value - this is called truncation. Therefore the compatibility is not necessarily symmetric. Similarly, a <code>32-bit-int</code> can be cast to a <code>32-bit-long</code> and the other way is not possible. 
     </p>
     <p>
       In order to convert a value &lt;val&gt; of any type to a value of &lt;different_type&gt; we use the following command:
     </p>
-    <p class="center">
-      <code> (&lt;different_type&gt;)&lt;val&gt;</code>
+    <p class="center" style="font-size: 30px">
+      <strong><code> (&lt;different_type&gt;)&lt;val&gt;</code></strong>
     </p>
 
 <pre class="C"><code>
-#include &lt;stdio.h&gt;
+
 int main(){
     float x = 12.34;;
     double y = -21.213;
@@ -125,27 +125,133 @@ int main(){
       </table>
     </div>
 
-    <quest>How to input and output variable values?</quest>
+    <h4> <u>Outputting</u> </h4>
+    <quest>How to <i>output</i> variable values?</quest>
     <p>
-      Not all computers have monitors! And not all programs 'print' stuff on screens. Imagine the router that you are probably connect to right now - there is computation going on in it, but it doesn't print anything anywhere does it? The <code>#include &lt;stdio.h&gt</code> directive that we often at the top of our C programs essentially gives the program the ability to interact with the use by taking inputs and giving outputs from the screen.
+      It really depends on how you want to <u>output</u> them. Do you want the program to <i>speak out</i> the value of a variable? Not that it is impossible, but you may need to do a bit of additional work for that. However, if you are happy with just <i>displaying</i> the value of the variable on the screen, the C library for <u>standard input and output</u> <code>stdio.h</code> provides you an easy way of achieving it: the <code>printf</code> command. The <code>printf</code> command takes a string of ascii characters and prints them on the screen. Therefore if you want to use the printf comman in your program you need to include the library <code>stdio.h</code> to it. The library file <b>stdio.h</b> must be located somewhere in your computer that the compiler knows of. Thankfully, when you install gcc compiler in your computer, this already taken care of.
     </p>
-<!--     <p> -->
-<!--       If  -->
-<!--     </p> -->
-<!--     <p> -->
-<!--       To print the values of <code>int</code>s and <code>float</code>s, we use the 'placeholders' <code>%d</code> and <code>%f</code> as shown in the example below. -->
-<!--     </p> -->
+<figure>
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+    printf("Hellz ya, this works!\n");
+    }</code></pre>        
+<figcaption>The program will not work as expected if we remove the directive <code>#include &lt;stdio.h&gt;</code> on the top.</figcaption>
+</figure>    
+    <p>
+      But if you want to print the value of a variable that is, say a <code>float</code>, you need to convert the value into a string of characters in order to printed. Thankfully this is also taken care of by the <code>printf</code> command by using the format specifiers. The code below uses the <code>printf</code> command to print the values of the variables <code>n</code> and <code>x</code>. Notice how <code>%d</code> and <code>%f</code> are used as placeholders for the value of the variables <code>n</code> and <code>x</code> respectively.
+    </p>
+    
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+    int n = 12;
+    float x = -21.213;
+    printf("the value of n = %d\n",n);
+    printf("the value of x = %f\n",x);
+    }</code></pre>        
 
-<!-- <pre class="C"><code> -->
-<!-- #include &lt;stdio.h&gt; -->
-<!-- int main(){ -->
-<!--   int pages = 250; //no. pages in a book -->
-<!--   float price = 100.5; //price of the book -->
+    <p>
+      Following is the table (stolen from <a href="http://cse.iitkgp.ac.in/~pds/notes/io.html">CSE iitkgp</a>) of such place holders for different <i>types</i> of variables:
+    </p>
 
-<!--   printf("The book has %d pages, and it costs %f rupees\n" , pages, price); -->
-<!--   return 0;  -->
-<!-- }</code></pre>             -->
 
+<table cellpadding="5" cellspacing="0" border="0">
+<tbody><tr><td align="center"><tt><code>%d,%i</tt></code></td><td>Print an integer in decimal.
+</td></tr><tr><td align="center"><tt><code>%o</tt></code></td><td>Print an integer in octal.
+</td></tr><tr><td align="center"><tt><code>%x</tt></code></td><td>Print an integer in hexadecimal. Use the digits <tt><code>0,1,...,9,a,b,c,d,e,f</tt></code>.
+</td></tr><tr><td align="center"><tt><code>%X</tt></code></td><td>Same as <tt><code>%x</tt></code> except that the digits <tt><code>0,1,...,9,A,B,C,D,E,F</tt></code> are used.
+</td></tr><tr><td align="center"><tt><code>%u</tt></code></td><td>Print an unsigned integer in decimal.
+</td></tr><tr><td align="center"><tt><code>%hd,%hi,%ho,%hu,%hx,%hX</tt></code></td><td>Print a <tt><code>short</tt></code> integer.
+</td></tr><tr><td align="center"><tt><code>%ld,%li,%lo,%lu,%lx,%lX</tt></code></td><td>Print a <tt><code>long</tt></code> integer.
+</td></tr><tr><td align="center"><tt><code>%Ld,%Li,%Lo,%Lu,%Lx,%LX</tt></code></td><td><p>Print a <tt><code>long long</tt></code> integer.
+(Not in ANSI C. <tt><code>ll</tt></code> may be used in place of <tt><code>L</tt></code>. Some compilers
+support <tt><code>%q</tt></code>.)
+</p></td></tr><tr><td align="center"><tt><code>%f</tt></code></td><td>Print a <tt><code>float</tt></code> in decimal.
+</td></tr><tr><td align="center"><tt><code>%e</tt></code></td><td>Print a <tt><code>float</tt></code> in the scientific (exponential) notation.
+</td></tr><tr><td align="center"><tt><code>%E</tt></code></td><td>Same as <tt><code>%e</tt></code> except that <tt><code>E</tt></code> is used to denote the exponent.
+</td></tr><tr><td align="center"><tt><code>%lf,%le,%lE,%la,%lA</tt></code></td><td>Print a <tt><code>double</tt></code>.
+</td></tr><tr><td align="center"><tt><code>%Lf,%Le,%LE,%La,%LA</tt></code></td><td>Print a <tt><code>long double</tt></code>.
+</td></tr><tr><td align="center"><tt><code>%c</tt></code></td><td>Print a single character.
+</td></tr><tr><td align="center"><tt><code>%s</tt></code></td><td>Print a string of characters.
+</td></tr><tr><td align="center"><tt><code>%%</tt></code></td><td>Print a literal <tt><code>%</tt></code>.
+</td></tr><tr><td align="center"><tt><code>\"</tt></code></td><td>Print a literal double quote <tt><code>"</tt></code>.
+</td></tr></tbody></table>
+
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+  int pages = 250; //no. pages in a book
+  float price = 100.5; //price of the book
+  char let = 'k';
+
+  printf("The book has %d pages, and it costs %f rupees\n" , pages, price);
+  printf("The title of the book starts with the character %c\n", let);
+  return 0;
+}</code></pre>    
+    
+
+    <figure class="center">
+      <img class="middle" width="70%" src="figures/spider.gif"
+	   alt='rubiks'>
+      <figcaption>Remember, not all programs 'print' stuff on screens. <b>Imagine the wifi router that you probably are connected to right now - there is computation going on in it, but it doesn't print anything anywhere, does it?</b>. Similarly this robotic spider crawling through a terrain may not have a monitor either. But it continues to output information through other means such as wireless signals.</figcaption>
+    </figure>
+
+    
+
+    <h4><u>Inputting</u></h4>
+    <p>
+    Values can be assigned to declared variables by using the assignment operator as shown above. Such an assignment is sometimes called <i>hard coding</i> because these values cannot be modified during the time of execution. For instance:
+    </p>
+    
+    <figure>
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+
+    float vi; //initial velocity ms-1
+    vi = 10;
+    float accln = 10;
+    float time = 100;
+
+    float vf = vi + accln*time;
+
+    printf("the final velocity is %f \n", vf);
+    return 0;
+}</code></pre>    
+<figcaption>This program, when compiled and executed, computes the final velocity for specific values of <code>vi, accln, time</code> and there's not way of changing these at the time of execution.</figcaption>
+    </figure>
+
+    <p>
+      Whereas, the following program provides a way for the end user (the user who only works with the executable) to enter different values for <code>vi, accln, time</code>. This clear makes the program much more useful.
+    </p>
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+
+    float vi, accln, time, vf;
+
+    printf("welcome to the awesome kinematic solver.\n");
+
+    printf("enter the value of vi: "); //output
+    scanf("%f", &vi); //input
+
+    printf("enter the val of accln: "); //output
+    scanf("%f", &accln); //snifs a float value and puts it in the location where the variable accln is stored in RAM
+
+    printf("enter the time: ");//output
+    scanf("%f", &time);//input
+
+    vf = vi + accln*time;
+
+    printf("the final velocity is %f \n", vf);
+
+    return 0;
+}</code></pre>        
+
+    <p>
+      The <code>scanf</code> command enables us place the value of a variable into its location in the RAM of the computer. The location of a variable in the RAM can be accessed by the <code>&</code> operator and we'll discuss more on this in the future.
+    </p>
     
   </body>
 </html>
