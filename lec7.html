@@ -1,5 +1,4 @@
 
-
 <html>
   <head>    
     <script type="text/javascript" src="https://latex.codecogs.com/latexit.js"></script>
@@ -8,15 +7,161 @@
     
   </head>
   <body>
-    <h3 id="lec7">[Lecture 7] Conditionals - incorportating Boolean logic into programs </h3>
+    <h3 id="lec7">[Lecture 7] Conditionals - incorportating logic into programs </h3>
 
-    Imagine you are programming a selfdriving car. The car has to take a sequence of decisions as it finds its way to the destination. Ideally, we want these decisions to be absolutely logical lest the car gets caught in an accident or traffic violation. For example: <b>If</b> the signal light glows <u>red</u>, it has to <u>stop</u> at a signal; <b>else if</b> it glows <u>orange</u>, we want it to proceed with <u>caution</u>, <b>else if</b> it is green we <u>proceed</u> without any worries. 
+    <quest>Why do we need logic in programs?</quest>    
+    <p>
+      Suppose you want to build a self driving car. The car needs to be <i>smart</i> enough to find its way through the traffic and the terrain, and reach its destination without causing any troubles or violating traffic rules. Such a task requires ability to make logical decisions. The following are examples of such decisions:
+      <ol>
+	<li> When to accelerate?</li>
+	<li> Which gear to use?</li>
+	<li> When to slow down?</li>
+	<li> When to apply the brake, and how much? etc</li>
+      </ol>
+      Such questions can be answered by performing computations on various quantities such as <i>the current speed</i>, <i>distance and state of various obstacles</i>, <i>color of the traffic lights</i> etc. When we drive a car ourselves, our brains are capable of performing these computations involuntarily, and we decide our actions based on that. However, while designing a self driving car it requires that we explicitly incorporate such decision taking (logical) abilities into the software for the car. Here's a simple example - suppose a car is approaching a traffic signal. It has to do different things in different circumstances:
+    </p>
 
-    Suppose, the decision of when to apply a brake will be logical only when you take various parameters into account. These parameters may include speed, distance from the obstacle, traffic, size of the vehicale etc - into account. If you mindlessly hit the break, that may lead some serious disaster and you'll end cursing yourself you have acted mindlessly! A <i>decision</i> is said to be <u>logical</u> when it is taken subject to certain conditons. 
+    <div class="center" style="text-align: left;">
+    <b>If</b> (the signal light glows <font color="red">red</font>)<br>
+    <p class="tab1">it has to <b><u>stop</u></b>;</p>
+    <b>else if</b> (it glows <font color="orange">orange</font>)
+    <p class="tab1">go slow with <u><b>caution</b></u>;</p>
+    <b>else if</b> (it glow <font color="green">green</font>)
+    <p class="tab1"><u><b>proceed;</b></u></p>
+    <b>else</b> 
+    <p class="tab1"><u><b>Report Malfunction!</b></u></p>
+    </div>
+    
+    <p>
+      To be able to do something like this, the car should have the following capabilities
+      <ol>
+	<li> Detect the color of the traffic signal</li>
+	<li> Compare the detected color with <font color="red">red</font>, <font color="orange">orange</font> and <font color="green">green</font> and do what is appropriate in each case. 
+      </ol>
+      Such kind of <i>smartness</i>, ie. ability to make logical decisions, can be incorporated into computer programs by using the <i>conditional statements</i>. Conditional statements are basic constructs that are present in almost all programming langauges. In fact, 
+    </p>
 
-    If you have ever seen an automatic scooter (such as Scooty, Acitva, etc) and even wonder who they go so smooth without having 
+    <figure class="center">
+      <img  width="90%" src="figures/signalCar.gif"
+	    alt='troll3'>
+      <figcaption><a href="https://dribbble.com/shots/7270743-When-it-s-red-just-stop-the-car/attachments/224068?mode=media">(Animation source)
+	</a>
+      </figcaption>
+    </figure>
     
 
+    <quest>Logic is all about controlling the flow of decisions!</quest>
+<p>
+    Consider the following piece of code in which there are some computational operations lined up as <code>action 1;</code>, <code>action 2;</code>, etc.
+
+    <pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+
+    action 1; 
+
+    action 2;
+
+}</code></pre>       
+   
+    In this example program, <code>action 1;</code>, <code>action 2;</code> etc will be executed one after the other. That's equivalent to a self-driving car performing: <i>the brake, the accelerator, the a hand signal</i> one after another without caring for any context! We can make it such that <code>action 1;</code> is performed under certain circumstances whereas <code>action 2;</code> are performed in other circumstances.
+</p>
+
+<h4>The <code>if</code> construct: </h4>  
+<p>
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+
+    if (condition 1) {
+        action 1;
+    }
+
+    action 2;
+
+}</code></pre>
+In stead of perfoming all the actions in a serial manner the if construct performs <code>action 1;</code> only when <code>codition 1</code> is true; and <code>action 2;</code> is performed in either case.
+</p>. 
+
+<h4>The <code>if - else</code> construct: </h4>  
+<p>
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+    if (condition 1) {
+        action 1;
+    }
+    else{
+        action 2;
+    }
+}</code></pre>
+
+<code>action 1;</code> is performed when <code>codition 1</code> holds true; and <code>action 2;</code> is performed  <code>codition 1</code> is false.
+</p>
+
+
+<h4>The <code>if - else if - else</code> construct: </h4>  
+<p>
+<pre class="C"><code>
+#include &lt;stdio.h&gt;
+int main(){
+    if (condition 1) {
+        action 1;
+    }
+    else if(condition 2){
+        action 2;
+    }
+    else{
+        action 3;
+    }
+}</code></pre>
+
+<ol>
+  <li> <code>action 1;</code> is performed when <code>codition 1</code> is true.
+  <li> <code>action 2;</code> is performed  <code>codition 1</code> is false but <code>codition 2</code> is true.
+  <li> <code>action 3;</code> is performed when neither condition is true.
+</ol>
+</p>
+
+    <p> In the above example, <code>condition 1;</code> and <code>condition 2;</code> are what are called <i>boolean expressions</i> [Look here: <a href="https://en.wikipedia.org/wiki/Boolean_expression">https://en.wikipedia.org/wiki/Boolean_expression</a>].
+    </p>
+
+
+    <h4>Nested conditionals</h4>
+<!-- <p> -->
+<!--   (Some of the following material is taken from <a href="https://www.khanacademy.org/computing/ap-computer-science-principles/programming-101/boolean-logic/a/nested-conditionals">Computer Science Principles:Khan Academy</a>) -->
+<!-- </p> -->
+
+    Suppose the car is move as speed S kmph and the road has a <b>speed limit of 80 kmph</b>. You want to take a decision whether to speed up the car based on certain contions. For example:
+    <ul>
+      <li> If the car is going too fast (&lt; 80 Kmph): slow down
+      <li> Else If the car is going too slow (&gt; 70 Kmph): speed up to 75.
+      <li> otherwise, proceed at the same speed.
+    </ul>
     
+<figure class="center">
+  <img  width="80%" src="figures/nestedcond2.png"
+	alt='Nestedcond1'>
+</figure>	
+
+We can translate this logic to a <code>C</code> program as follows:
+<pre class="C"><code>
+
+    if (speed >= 80) {
+        slow down!;
+    }
+    else{
+         if(speed &lt; 70){
+            speed up to 75;
+        }
+        else{
+            don not change;
+        }
+    }		    
+</code></pre>
+In this example, there is an inner <code>if-else</code> statement within the outer <code>if-else</code> statement - such statements are called nested conditionals. In fact, there can be another <code>if-else</code> statement within the inner <code>if-else</code> and so on. 
+		   
+
+		    
   </body>
 </html>
