@@ -1,0 +1,134 @@
+
+<html>
+  <head>    
+    <script type="text/javascript" src="https://latex.codecogs.com/latexit.js"></script>
+
+    <title>lec7</title>
+    
+  </head>
+  <body>
+    <h3 id="lec8">[Lecture 8] Iterations </h3>
+
+    <quest>Why do we need logic in programs?</quest>    
+
+<p dir="ltr" style="text-align: left;"></p>
+<p><span lang="EN-US">One sure thing that computers are often used for is to&nbsp;<u>automate repetitive tasks</u>. Repeating identical or similar tasks several times without making errors is something that computers do well and people do poorly. Humans get bored doing the same thing a million times – however for a computer, it is a pleasure (or rather the purpose)! The process of repeating a certain task several times is generally called (even colloquially..)&nbsp;<strong>iteration</strong>.</span></p><span><strong>Some silly examples:</strong><br>
+    <ol>
+        <li><strong><span>Suppose you want to convince a friend to join a party and he is a total lazy ass! You ask him again and again, until he agrees. Now technically we say you&nbsp;<u>iterate</u>&nbsp;the task of requesting your friend until he agrees!</span></strong></li>
+        <li><strong><span>Now, imagine you have 10 such lazy friends. In this case you'll have to iterate the process of convincing each of them 10 times!</span></strong></li>
+    </ol>
+    <p><span>Typically iterations are achieved in computer programs using constructs called 'loops'.&nbsp;</span><span><span>Loops allow us to write concise, repeatable code that can be applied to each element in a collection or perform a task over and over again until some condition is met. When writing a loop, there are three essential components:</span></span><br></p>
+    <ol>
+        <li><span><span><span><span>An&nbsp;<em>initialisation&nbsp;</em>statement that specifies how the loop begins.</span></span></span></span></li>
+        <li><span><span><span><span>A continuation (or termination) condition (a Boolean statement) that specifies whether the loop should continue to execute or terminate.</span></span></span></span></li>
+        <li><span><span><span><span>An iteration statement that makes progress toward the termination condition.&nbsp;</span></span></span></span></li>
+    </ol>
+    <p><span>The initialisation&nbsp;statement is executed before the loop begins and serves as a way to set the loop up. Typically, the initialisation statement involves setting the initial value of some variable.</span><br></p>
+    <p><span>The continuation statement is a logical statement (that evaluates to true or false) that specifies if the loop should continue (if the value is true) or should terminate (if the value is false). Upon termination, code returns to a sequential control flow and the program.<br></span></p>
+    <p><span>The iteration statement is intended to update the state of a program to make progress toward the termination condition. If we didn’t make such progress, the loop would continue on forever as the termination condition would never be satisfied. This is known as an infinite loop , and results in a program that never terminates.<br></span></p>
+    <p><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-03-11%20at%204.41.29%20PM.png" alt="" width="300" height="604" role="presentation"><br></span></p>
+    <p><span><br></span></p>
+    <p>As a simple example, consider the following outline.</p>
+</span>
+<div><span>
+        <p>• Initialise the value of a variable i to 1</p>
+    </span></div>
+<div><span>
+        <p>• While the value of i is less than or equal to 10 . . . (continuation condition) • Perform some action (this is sometimes referred to as the loop body</p>
+    </span></div>
+<div><span>
+        <p>• Iterate the variable i by adding one to its value</p>
+    </span></div><span>
+    <p><span></span></p>
+    <p>The code outline above specifies that&nbsp;<strong><u>some action</u></strong>&nbsp;is to be performed once for each value: i = 1, i = 2, . . . , i = 10, after which the loop terminates. Overall, the loop executes a total of 10 times. Prior to each of the 10 executions, the value of i is checked; as it is less than or equal to 10, the action is performed. At the end of each of the 10 iterations, the variable i is incremented by 1 and the termination condition is checked again, repeating the process. There are several different types of loops that vary in syntax and style but they all have the same three basic components.</p>
+    <h5><span><span><span><span><strong>Alright, how do we create loops in C?</strong></span></span></span></span></h5>
+</span>
+<div><span>
+        <p>Well, in C programming language there are two ways of achieving this:</p>
+    </span></div><span>
+    <ul>
+        <ul>
+            <li>the while-loop construct</li>
+            <li>the for-loop construct</li>
+        </ul>
+    </ul>
+</span>
+<div><span>
+        <p>In C programming language both are&nbsp;<em>almost</em>&nbsp;identical in terms of capabilities and there is&nbsp;<em>almost</em>&nbsp;never a case when one must be preferred over the other. Whereas in Python, for instance, they both work entire differently (we'll learn this later).</p>
+    </span><span>
+        <p><strong>while loop - a simple example&nbsp;</strong>:</p>
+    </span><span>
+        <p><span>int i = 1;&nbsp;</span><em>// i is the counter variable</em></p>
+    </span><span>
+        <p><span>while(i &lt; 11){&nbsp;<span><em>// i &lt; 11 is a boolean conditional</em></span></span></p>
+    </span><span>
+        <p><span>&nbsp; &nbsp; &nbsp; &nbsp;printf("make pizza number %d\n", i);&nbsp;<em>//Action that is iteratively performed so long as the conditional is True</em></span></p>
+    </span><span>
+        <p><span>&nbsp; &nbsp; &nbsp; &nbsp;i = i + 1;&nbsp;<em>//the value of i is updated every iteration</em></span></p>
+    </span><span>
+        <p><span>&nbsp; &nbsp; &nbsp; }</span></p>
+    </span>
+    <p><strong>for loop - a simple example&nbsp;</strong>:</p>
+    <p><br></p>
+    <p><img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-03-19%20at%209.23.52%20PM.png" alt="" width="700" height="349" role="presentation"></p>
+    <p>The following for loop does exactly does what the while loop does. The only difference is that the initialization statment, the conditional and the incrementation are all nicely packed within the pair of parens after the&nbsp;<em>for.</em></p>
+    <p>for(int i = 1; i &lt; 11; i = i + 1){</p>
+    <p><span>&nbsp; &nbsp; &nbsp;printf("make pizza number %d\n", i);</span></p>
+    <p><span>}</span></p>
+    <p>So long as you know why you are implementing iteration and what you want to do with it, there is almost never a case when you would prefer one over the other.&nbsp;</p>
+    <p><span><strong>And one more thing:</strong></span></p>
+    <p><span>There is also this construct called the do-while construct which comes handy some times.&nbsp;</span></p>
+    <p>int i = 0;</p>
+    <p>do{</p>
+    <p>&nbsp; &nbsp; &nbsp;printf("make pizza number %d\n", i);</p>
+    <p>}</p>
+    <p>while(i &lt; 10);</p>
+</div>
+<p></p>
+<p><br><img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-03-19%20at%209.25.13%20PM.png" alt="" width="500" height="315" role="presentation"><br><br>The subtle difference between the&nbsp;<strong>while</strong>&nbsp;construct and the&nbsp;<strong>do-while</strong>&nbsp;construct can best be appreciated by experimenting with them!<br></p>
+<h5><strong>Exercises</strong></h5>
+<div>
+    <p>1)&nbsp;Find the error in each of the following code segment:</p>
+    <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-03-19%20at%209.31.23%20PM.png" alt="" role="presentation"></p>
+    <p><span>2)&nbsp;Find the error in each of the following code segment:</span></p>
+    <p><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-03-19%20at%209.31.50%20PM.png" alt="" width="500" height="98" role="presentation"></span></p>
+    <p><span>3)&nbsp;Write for statements that print the following sequences of values:</span></p>
+    <p><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-03-19%20at%209.33.37%20PM.png" alt="" width="300" height="128" role="presentation"></span></p>
+    <p><span>4)&nbsp;Write a program to calculate and print the sum of all multiples of 7 from 1 to 100.</span></p>
+    <p>5)&nbsp;<span>Write a program that prints the sum, the sum of the squares, and the sum of the cubes of all natural numbers from 1 till any number entered by the user.</span></p>
+</div>
+<p></p>
+<h4><span><strong>Infinite loops:</strong></span></h4>
+<div>
+    <p><span><span>You may sometimes want to keep the loop running forever until it is broken intentionally. All the video games you play are actually infinite loops. They close only when when you click on "Quit Game" manually. Also, in fact most of the programs that you use on your computer (eg: Browser, VS Code, Spotify etc) also also infinite loops -- for none of them close by themselves unless you explicitly click on the close button.&nbsp;</span></span></p>
+    <p><span><span>As such creating an infinite loop isn't hard. All you need to do is just make sure that the Boolean conditional is always true. Have a look at this example:</span></span></p>
+    <p>while(1 == 1){<br><span>&nbsp; &nbsp; &nbsp; &nbsp;printf("some actions\n");<br></span><span>}</span></p>
+    <p><span>In here, because the conditional statement is always true (because 1 is always equal to itself!), the action will be performed iteratively until the end of the universe. If you incorporate 'quitting upon command' feature you can achieve that using the keyword 'break'.&nbsp;</span></p>
+    <p><span>while(1 == 1){<br><span>&nbsp; &nbsp; &nbsp; &nbsp;printf("some actions\n");<br>&nbsp; &nbsp; &nbsp; &nbsp;int i;<br>&nbsp; &nbsp; &nbsp; &nbsp;scanf("%d", &amp;i);<br></span></span><span>&nbsp; &nbsp; &nbsp; &nbsp;if(i == -1){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br><br>&nbsp;}</span></p>
+    <p><span>What the above program does is that it prompts you to enter an integer at every iteration and unless the user enters -1 the loop continues. But when the user does enter -1, the loop breaks thanks to the 'break' command.&nbsp;</span></p>
+</div>
+<h5>The break statement:</h5>
+<div>
+    <p><u>Single loop</u>: Suppose you have single loop (while or for) and you include the 'break;' statement somewhere inside the loop: the loop breaks (literally) when the the break statement is encountered the first time. For example the following code doesn't print anything at all because the loop would have broke after encountering the break statement in the first iteration itself.</p>
+    <p>&nbsp;<img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-04-04%20at%2012.02.52%20PM.png" alt="" width="400" height="148" role="presentation"></p>
+    <p>Where as the following code prints "I love myself some coffee!" exactly 7 times; and you know why.<br><img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-04-04%20at%2012.04.36%20PM.png" alt="" width="400" height="176" role="presentation"><br></p>
+    <p><span><u>Ne</u></span><span><u>sted loops</u>: Strictly speaking the break statement breaks the immediate loop that it belong within. Therefore,&nbsp;</span><span>&nbsp;if you are dealing with nested loops, where the break statement is located makes all the difference. The following program for instance prints Apples! (10 times) and Oranges! zero times. See why?</span></p>
+    <p><img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-04-04%20at%2012.42.08%20PM.png" alt="" width="400" height="205" role="presentation"><br></p>
+</div>
+<div>
+    <p></p>
+</div>
+<h5>The continue statement:</h5>
+<div><u>Single Loop</u>: Suppose you have a single loop going on and you insert a 'continue;' statement in it, the execution will be suddenly taken to the top of the loop. Have a look at this code:</div>
+<div><img src="https://euclid-mu.in/draftfile.php/137/user/draft/710720710/Screenshot%202022-04-04%20at%2012.59.18%20PM.png" alt="" width="400" height="182" role="presentation"><br></div>
+<div>The above code prints Oranges! 10 times and doesn't print any Apples! at all. Why? Because the continue; statement in line:7 is taking the execution back to line:6 in every iteration.</div>
+<div><br></div>
+<div><span><u>Ne</u></span><span><u>sted loops</u>: Like in the case of break, continue statement also only affects the immediate loop within which is it contained.&nbsp;&nbsp;</span><br></div>
+<div><br></div>
+<div>
+    <p><span>Refer to the&nbsp;<a href="https://euclid-mu.in/mod/resource/view.php?id=2397">elevator.c</a>&nbsp;code to understand the use of break and continue statements.</span></p><br>
+</div><br>
+<p></p>
+    
+      </body>
+</html>

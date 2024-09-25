@@ -9,90 +9,90 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css"> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script> -->
     <!-- <\!-- and it's easy to individually load additional languages -\-> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/go.min.js"></script> -->
-    
-    <script>hljs.initHighlightingOnLoad();</script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/go.min.js"></script> -->
+      
+      <script>hljs.initHighlightingOnLoad();</script>
 
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- <script src="https://www.w3schools.com/lib/w3data.js"></script> -->
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./mycss/styles.css" />
+      
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <!-- <script src="https://www.w3schools.com/lib/w3data.js"></script> -->
+      <script src="https://www.w3schools.com/lib/w3.js"></script>
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="./mycss/styles.css" />
 
-    <!-- ----------------- reloading same pos -------------------------- -->
-    <script>
-      $(window).scroll(function() {
-	  sessionStorage.scrollTop = $(this).scrollTop();
-      });
+      <!-- ----------------- reloading same pos -------------------------- -->
+      <script>
+	$(window).scroll(function() {
+	    sessionStorage.scrollTop = $(this).scrollTop();
+	});
 
-      $(document).ready(function() {
-	  if (sessionStorage.scrollTop != "undefined") {
-	      $(window).scrollTop(sessionStorage.scrollTop);
-	  }
-      });
-
-
-      function myFunction(){
-	  $("form").submit();
-      }
-    </script>
-    
-    <!-- -------------- navsection ----------------------------- -->
-    <script>
-      window.addEventListener('DOMContentLoaded', () => {
-
-	  const observer = new IntersectionObserver(entries => {
-	      entries.forEach(entry => {
-		  const id = entry.target.getAttribute('id');
-		  if (entry.intersectionRatio > 0) {
-		      document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active');
-		  } else {
-		      document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active');
-		  }
-	      });
-	  });
-
-	  // Track all sections that have an `id` applied
-	  document.querySelectorAll('section[id]').forEach((section) => {
-	      observer.observe(section);
-	  });
-	  
-      });
-    </script>
-    
-
-    <!-- ------------floating top button---------------- -->
-
-    <style>
-
-      #myBtn {
-	  display: none;
-	  position: fixed;
-	  bottom: 20px;
-	  right: 30px;
-	  z-index: 99;
-	  font-size: 18px;
-	  border: none;
-	  outline: none;
-	  background-color: darkred;
-	  color: white;
-	  cursor: pointer;
-	  padding: 15px;
-	  border-radius: 4px;
-      }
-
-      #myBtn:hover {
-	  background-color: #555;
-      }
-    </style>
-
-    <!-- ------------End of floating top button---------------- -->
+	$(document).ready(function() {
+	    if (sessionStorage.scrollTop != "undefined") {
+		$(window).scrollTop(sessionStorage.scrollTop);
+	    }
+	});
 
 
-    
+	function myFunction(){
+	    $("form").submit();
+	}
+      </script>
+      
+      <!-- -------------- navsection ----------------------------- -->
+      <script>
+	window.addEventListener('DOMContentLoaded', () => {
+
+	    const observer = new IntersectionObserver(entries => {
+		entries.forEach(entry => {
+		    const id = entry.target.getAttribute('id');
+		    if (entry.intersectionRatio > 0) {
+			document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.add('active');
+		    } else {
+			document.querySelector(`nav li a[href="#${id}"]`).parentElement.classList.remove('active');
+		    }
+		});
+	    });
+
+	    // Track all sections that have an `id` applied
+	    document.querySelectorAll('section[id]').forEach((section) => {
+		observer.observe(section);
+	    });
+	    
+	});
+      </script>
+      
+
+      <!-- ------------floating top button---------------- -->
+
+      <style>
+
+	#myBtn {
+	    display: none;
+	    position: fixed;
+	    bottom: 20px;
+	    right: 30px;
+	    z-index: 99;
+	    font-size: 18px;
+	    border: none;
+	    outline: none;
+	    background-color: darkred;
+	    color: white;
+	    cursor: pointer;
+	    padding: 15px;
+	    border-radius: 4px;
+	}
+
+	#myBtn:hover {
+	    background-color: #555;
+	}
+      </style>
+
+      <!-- ------------End of floating top button---------------- -->
+
+
+      
   </head>
 
   <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
@@ -180,58 +180,59 @@
 	  <li><a href="#lec5" style="color: blue; font-size:20px;">Lecture 5</a>
 	  <li><a href="#lec6" style="color: blue; font-size:20px;">Lecture 6</a>
 	  <li><a href="#lec7" style="color: blue; font-size:20px;">Lecture 7</a>
+	  <li><a href="#lec8" style="color: blue; font-size:20px;">Lecture 8</a>
 	</ul>
       </div>
 
       <hr>
 
       <p>
-      <section>
-	<div w3-include-html="lec1.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
-      </section>
+	<section>
+	  <div w3-include-html="lec1.html"></div>
+	  <script>
+	    w3.includeHTML();
+	  </script>
+	</section>
 
-      <!-- ------------------------------------------------ -->
-      <hr>
+	<!-- ------------------------------------------------ -->
+	<hr>
 
-      <section>
-	<div w3-include-html="lec2.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
-      </section>
+	<section>
+	  <div w3-include-html="lec2.html"></div>
+	  <script>
+	    w3.includeHTML();
+	  </script>
+	</section>
 
-      <!-- ------------------------------------------------ -->
-      <hr>
+	<!-- ------------------------------------------------ -->
+	<hr>
 
-      <section>
-	<div w3-include-html="lec3.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
-      </section>
+	<section>
+	  <div w3-include-html="lec3.html"></div>
+	  <script>
+	    w3.includeHTML();
+	  </script>
+	</section>
 
-      <!-- ------------------------------------------------ -->
-      <hr>
-      
-      <section>
-	<div w3-include-html="lec4.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
-      </section>
+	<!-- ------------------------------------------------ -->
+	<hr>
+	
+	<section>
+	  <div w3-include-html="lec4.html"></div>
+	  <script>
+	    w3.includeHTML();
+	  </script>
+	</section>
 
-      <!-- ------------------------------------------------ -->
-      <hr>
-      
-      <section>
-	<div w3-include-html="lec5.html"></div>
-	<script>
-	  w3.includeHTML();
-	</script>
-      </section>
+	<!-- ------------------------------------------------ -->
+	<hr>
+	
+	<section>
+	  <div w3-include-html="lec5.html"></div>
+	  <script>
+	    w3.includeHTML();
+	  </script>
+	</section>
     </div>
 
     <!-- ------------------------------------------------ -->
@@ -270,19 +271,28 @@
     <!-- ------------------------------------------------ -->
     
     <hr>
-      
-      <section>
-    	<div w3-include-html="lec7.html"></div>
-    	<script>
-    	  w3.includeHTML();
-    	</script>
-      </section>
-    </div>
+    
+    <section>
+      <div w3-include-html="lec7.html"></div>
+      <script>
+    	w3.includeHTML();
+      </script>
+    </section>
+</div>
 
     <hr>
     
     <section>
-    
+      <div w3-include-html="lec8.html"></div>
+      <script>
+    	w3.includeHTML();
+      </script>
+    </section>
+
+<hr>
+
+<section>
+  
 </div>
 
 
